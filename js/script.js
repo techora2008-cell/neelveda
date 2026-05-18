@@ -256,7 +256,7 @@ const whatsappLink = document.getElementById('whatsapp-link');
 let currentSize = '200ml';
 let currentPrice = '₹249.00';
 let productName = "Neelveda Herbal Oil";
-const whatsappNumber = "919544181503"; // Updated WhatsApp number
+const whatsappNumber = "918156924839"; // Updated WhatsApp number
 
 function updateSize(size, price) {
     currentSize = size;
@@ -508,7 +508,7 @@ function updateWhatsAppLink() {
     const whatsappLink = document.querySelector('.whatsapp-link'); // Assuming an identifier
     if (whatsappLink) {
         // Temporarily decoupled from localStorage admin settings
-        const activeNumber = "919544181503";
+        const activeNumber = "918156924839";
         const productName = "Neelveda Herbal Oil";
         const currentQty = localStorage.getItem('checkoutQty') || 1;
         const message = `Hello Neelveda! I would like to order ${currentQty} x ${productName}. Please let me know the next steps.`;
@@ -523,7 +523,7 @@ function loadSettings() {
     const settings = {
         productName: "Neelveda Herbal Oil",
         price: "₹249.00",
-        whatsapp: "919544181503",
+        whatsapp: "918156924839",
         heroHeadline: "100% ORGANIC",
         heroSubtext: "Nourished Roots. Stronger, Shinier You.",
         announcementText: "Cashback in three days • Free shipping • Best offers",

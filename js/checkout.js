@@ -133,14 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedSettings = {
         productName: "Neelveda Herbal Oil",
         price: "₹249.00",
-        whatsapp: "919544181503"
+        whatsapp: "918156924839"
     };
 
     // settings holds the details for this specific checkout transaction
     const settings = {
         productName: checkoutData.productName || storedSettings.productName || "Neelveda Herbal Oil",
         price: checkoutData.price || storedSettings.price || "₹249.00",
-        whatsapp: storedSettings.whatsapp || "919544181503"
+        whatsapp: storedSettings.whatsapp || "918156924839"
     };
     
     const checkoutQty = parseInt(localStorage.getItem('checkoutQty')) || 1;
