@@ -2,6 +2,11 @@
 RewriteEngine On
 RewriteBase /
 
+# Enforce HTTPS and non-WWW (Canonical Domain)
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.neelveda\.in$ [NC]
+RewriteRule ^(.*)$ https://neelveda.in/$1 [R=301,L]
+
 # Redirect old .html storefront pages to clean folder trailing slash URLs
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^story\.html$ /about/ [R=301,L]
@@ -27,6 +32,20 @@ RewriteRule ^blog/reduce-hair-fall-naturally\.html$ /blog/reduce-hair-fall-natur
 RewriteRule ^blog/ayurvedic-hair-care-routine\.html$ /blog/ayurvedic-hair-care-routine/ [R=301,L]
 RewriteRule ^blog/coconut-oil-for-hair-growth\.html$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
 RewriteRule ^blog/techora\.html$ /blog/techora/ [R=301,L]
+
+# Redirect root-level blog requests to canonical /blog/ nested clean directories
+RewriteRule ^bhringraj-benefits/?$ /blog/bhringraj-benefits/ [R=301,L]
+RewriteRule ^reduce-hair-fall-naturally/?$ /blog/reduce-hair-fall-naturally/ [R=301,L]
+RewriteRule ^ayurvedic-hair-care-routine/?$ /blog/ayurvedic-hair-care-routine/ [R=301,L]
+RewriteRule ^coconut-oil-for-hair-growth/?$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
+RewriteRule ^techora/?$ /blog/techora/ [R=301,L]
+
+# Redirect root-level legacy .html blog files to canonical nested clean directories
+RewriteRule ^bhringraj-benefits\.html$ /blog/bhringraj-benefits/ [R=301,L]
+RewriteRule ^reduce-hair-fall-naturally\.html$ /blog/reduce-hair-fall-naturally/ [R=301,L]
+RewriteRule ^ayurvedic-hair-care-routine\.html$ /blog/ayurvedic-hair-care-routine/ [R=301,L]
+RewriteRule ^coconut-oil-for-hair-growth\.html$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
+RewriteRule ^techora\.html$ /blog/techora/ [R=301,L]
 
 # Redirect the short-lived /pages/ prefix to prevent search indexing splits
 RewriteRule ^pages/about/?$ /about/ [R=301,L]
