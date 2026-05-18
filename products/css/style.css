@@ -3010,10 +3010,7 @@ footer {
         border-radius: 30px 30px 0 0; /* Match parent top corners */
     }
 
-    /* Assign the new mobile-optimized images */
-    .ad-clean-banner:nth-of-type(1) .ad-clean-image img { content: url('../../assets/images/products/offer/pc/clean-combo-3.png'); }
-    .ad-clean-banner:nth-of-type(2) .ad-clean-image img { content: url('../../assets/images/products/offer/pc/clean-combo-5.png'); }
-    .ad-clean-banner:nth-of-type(3) .ad-clean-image img { content: url('../../assets/images/products/offer/pc/clean-combo-10.png'); }
+
 
     .ad-clean-sub {
         font-size: 0.8rem;
