@@ -1,6 +1,6 @@
 # Neelveda Storefront: Codebase Architecture & Structural Details
 
-This document provides a comprehensive blueprint of the Neelveda codebase architecture, mapping out the directory tree, individual file responsibilities, search engine crawlers roadmap, and cross-file connection boundaries.
+This document provides a comprehensive blueprint of the Neelveda codebase architecture, mapping out the new structured directory tree, individual folder/file responsibilities, search engine crawlers roadmap, and cross-file connection boundaries.
 
 ---
 
@@ -9,80 +9,72 @@ This document provides a comprehensive blueprint of the Neelveda codebase archit
 Below is the complete physical organization of the Neelveda storefront codebase:
 
 ```txt
-neelveda5/
+neelveda/
 │
-├── ⚙️ Search Engine Optimization (SEO)
-│   ├── robots.txt                   # Crawler access controls (disallows admin panel)
-│   └── sitemap.xml                  # Dynamic XML site crawl index with priorities
+├── index.html                       # Direct E-Commerce Landing Page (Vedic theme, dynamic features)
+├── robots.txt                       # Search crawler directives (disallows secure admin panel)
+├── sitemap.xml                      # Complete extensionless search engine crawler roadmap
+├── structure_details.md             # Developer architecture blueprint (this file)
 │
-├── 📄 Public Storefront Pages
-│   ├── index.html                   # Interactive Home Landing Page (Hero, Bundles, Heritage)
-│   ├── product-detail.html          # Dynamic E-commerce Product Page (Galleries, Qty, WhatsApp)
-│   ├── ingredients.html             # Detailed Botanical ingredients spotlight
-│   ├── benefits.html                # Transformed hair-care benefits & comparison slider
-│   ├── story.html                   # Brand origins, Kerala legacy, & Vedic philosophy
-│   ├── review.html                  # Elite customer feedback panel (GSAP animated stars filter)
-│   ├── checkout.html                # Cart checkout form & Indian shipping calculations
-│   ├── faq.html                     # Customer FAQ accordion center (structured for search results)
-│   └── blog.html                    # Search-intent rich blog and educational resources
+├── 🎨 assets/                       # Global Storefront Static Assets
+│   ├── css/
+│   │   ├── style.css                # Primary storefront CSS (dark glassmorphism, responsive elements)
+│   │   └── checkout.css             # Checkout page overlay layouts
+│   ├── js/
+│   │   ├── script.js                # Core JS logic (sliders, active navbar, FAQ accordion triggers)
+│   │   ├── checkout.js              # E-commerce shipping/coupon engine, WhatsApp dispatcher
+│   │   └── alert.js                 # Premium alert modal animation triggers
+│   ├── fonts/                       # Custom local brand typography
+│   └── images/                      # Premium e-commerce renders & ingredient assets
 │
-├── 🔒 Protected Panels
-│   └── admin.html                   # Private Brand Control Panel (securely noindexed)
+├── 📂 pages/                        # Structural Core Storefront Pages (Index Trailing Slashes)
+│   ├── about/index.html             # Brand heritage, Kerala slow-cook roots, Vedic history
+│   ├── ingredients/index.html       # Botanical spotlight dictionary
+│   ├── benefits/index.html          # Comparison before-after slider, hair transformation facts
+│   ├── reviews/index.html           # Star rating aggregate reviews database panel
+│   ├── faq/index.html               # FAQ Q&As mapped to structural search snippets
+│   ├── shipping/index.html          # Indian shipping terms, COD and logistics policies
+│   ├── privacy-policy/index.html    # Privacy and security guidelines
+│   ├── terms/index.html             # Terms of service and usage conditions
+│   └── checkout/index.html          # Secured billing, discount coupon calculations
 │
-├── ⚖️ Legal & Compliance Pages
-│   ├── privacy-policy.html          # Brand privacy commitments
-│   ├── shipping-returns.html        # Indian shipping methods & return guidelines
-│   └── terms-of-service.html        # Site use terms & conditions
+├── ✍️ blog/                         # Topical Authority & Organic Search Journal
+│   ├── index.html                   # Educational Blog Dashboard
+│   ├── bhringraj-benefits.html      # Article: Vasodilation follicular recovery
+│   ├── reduce-hair-fall-naturally.html # Article: Freeing scalp pores and botanical cooling
+│   ├── ayurvedic-hair-care-routine.html # Article: Dinacharya daily and Shiro Abhyanga weekly rituals
+│   └── coconut-oil-for-hair-growth.html # Article: Molecular lauric acid keratin penetrative shield
 │
-├── 🎨 Styling Framework (css/)
-│   ├── style.css                    # Main storefront framework (Vedic theme, dark glassmorphism)
-│   └── checkout.css                 # Checkout page structural overrides
+├── 🛒 products/                     # Secure Product Catalog Layouts
+│   └── herbal-oil/index.html        # Detailed presentation page, size selections, whatsapp CTA
 │
-├── ⚡ Storefront Logic (js/)
-│   ├── script.js                    # Core interface events, overlays, sliders, and GSAP triggers
-│   ├── checkout.js                  # Checkout calculations, validation, and WhatsApp order generator
-│   └── alert.js                     # Elite, premium micro-animations alerts
-│
-├── 🖼️ Media & Brand Assets (images/)
-│   ├── logo.png                     # Primary high-res brand crest
-│   ├── 100ml-main.jpg               # Standard product presentation render
-│   ├── clean-combo-3.png            # 3-Pack Bundle Render
-│   ├── clean-combo-5.png            # 5-Pack Bundle Render
-│   ├── clean-combo-10.png           # 10-Pack Bundle Render
-│   ├── bhringraj.png                # Key Botanical ingredient: Bhringraj
-│   ├── amla.png                     # Key Botanical ingredient: Amla (Gooseberry)
-│   ├── coconut_oil.png              # Key Botanical ingredient: Virgin Coconut Oil
-│   ├── aloevera.png                 # Key Botanical ingredient: Aloe Vera
-│   ├── hibiscus.png                 # Key Botanical ingredient: Hibiscus
-│   ├── before_hair.png              # Transformative social proof: Before
-│   ├── after_hair.png               # Transformative social proof: After
-│   └── [mobile-assets, etc.]       # Optimized mobile specific ratios
-│
-└── 🛠️ Dev Utilities
-    ├── cleanup.bat                  # Temp clearing batch utility
-    ├── copy_images.bat              # Image asset transfer script
-    └── seo_standardization_report.md # Detail optimization report
+└── 🔒 admin/                        # Secure Private Brand Control
+    └── index.html                   # Mock management and sales operations dashboard (Strictly noindexed)
 ```
 
 ---
 
 ## 🗄️ File Catalog & Responsibilities
 
-| File Path | Primary Technology | Technical Role | Integration & Downstream Connections |
+| Directory Path | Depth | Technical Role | Integration & Downstream Connections |
 | :--- | :---: | :--- | :--- |
-| **`index.html`** | HTML5 | Primary landing page, offers display, and brand introduction. | Links to `product-detail.html`, `ingredients.html`, `benefits.html`, `story.html`. Uses `js/script.js`. |
-| **`product-detail.html`** | HTML5 | Product detail view, photo gallery controls, package pricing. | Redirects checkout events to `checkout.html`. Integrates with WhatsApp ordering. |
-| **`checkout.html`** | HTML5 | Indian shipping inputs and order dispatch configuration. | Loads `css/checkout.css` and `js/checkout.js`. |
-| **`ingredients.html`** | HTML5 | Interactive ingredient dictionary. | Links back to home `index.html#order`. Uses GSAP ScrollTriggers. |
-| **`benefits.html`** | HTML5 | Hair transformation details & before-after slider. | Handles image compare clip-paths natively. Links to order pathways. |
-| **`story.html`** | HTML5 | Neelveda heritage, philosophy, and sourcing. | Enforces brand trust for conversion. |
-| **`review.html`** | HTML5 | Interactive verified review portal. | Supports rating score filtering natively via custom datasets. |
-| **`faq.html`** | HTML5 | Accordion interface answering common product concerns. | Matches schema `FAQPage` rules for search engine snippets. |
-| **`blog.html`** | HTML5 | Content hub containing detailed search-intent hair care articles. | Boosts topical authority and acts as organic traffic driver. |
-| **`admin.html`** | HTML5 | Brand control and mock data generator. | **Strictly noindexed** (`robots.txt` + meta). Protected from indexing. |
-| **`css/style.css`** | CSS3 | Global custom stylesheet (Vedic deep forest theme, gold highlights). | Declares styling custom tokens (colors, font layers, shadows). |
-| **`js/script.js`** | Vanilla JS | Controls mobile navbar overlays, slider animations, and GSAP scroll actions. | Initializes GSAP timeline controllers. |
-| **`js/checkout.js`** | Vanilla JS | Handles price calculations, coupon values, validation, and WhatsApp order format strings. | Generates direct links to `api.whatsapp.com/send` containing checkout contents. |
+| **`index.html`** | 1 | Primary landing page, offers display, and brand introduction. | Root landing page. Links to `/pages/about`, `/pages/ingredients`, `/pages/benefits`, etc. Uses `assets/js/script.js`. |
+| **`pages/about/`** | 2 | Brand heritage, story, Kerala organic slow-cook history. | Enforces brand trust. Links relative back via `../../` to assets. |
+| **`pages/ingredients/`** | 2 | Interactive ingredient spotlight dictionary. | Integrates with GSAP ScrollTriggers. Links back relative to root. |
+| **`pages/benefits/`** | 2 | Comparison before-after slider, hair biological transformation facts. | Handles active comparison slider clip-paths. |
+| **`pages/reviews/`** | 2 | Verified customer rating reviews panel. | Displays mock statistics and aggregates rating score charts. |
+| **`pages/faq/`** | 2 | Customer FAQ accordion center. | Mapped to FAQPage JSON-LD schemas inside search snippets. |
+| **`pages/shipping/`** | 2 | COD and Indian shipping guidelines. | Legal policies compliance for merchant account approval. |
+| **`pages/privacy-policy/`** | 2 | Customer privacy rights. | Standards compliance page. |
+| **`pages/terms/`** | 2 | Legal terms of service. | Standards compliance page. |
+| **`pages/checkout/`** | 2 | Secular checkout and shipping cost calculator. | Leverages `assets/css/checkout.css` and `assets/js/checkout.js`. |
+| **`products/herbal-oil/`** | 3 | Premium single/combo product selector and WhatsApp checkout triggers. | Links up relative via `../../../` to assets. Launches custom client triggers. |
+| **`blog/`** | 2 | Main journal dashboard, indexing natural remedies articles. | High organic search driver. Links to nested article pages. |
+| **`blog/bhringraj-benefits`** | 2 | Deep article on vasodilation follicular recovery. | Individual reading template. |
+| **`blog/reduce-hair-fall-naturally`** | 2 | Deep article on scalp pores and anti-inflammatory cooling. | Individual reading template. |
+| **`blog/ayurvedic-hair-care-routine`** | 2 | Deep article on daily Dinacharya & weekly massages. | Individual reading template. |
+| **`blog/coconut-oil-for-hair-growth`** | 2 | Deep article on lauric acid and keratin protein affinity. | Individual reading template. |
+| **`admin/`** | 2 | Private sales and orders simulator dashboard. | **Strictly noindexed** via `robots.txt` disallow `/admin/` and head meta tags. |
 
 ---
 
@@ -90,13 +82,10 @@ neelveda5/
 
 To maintain the high SEO standard achieved across this project, developers must strictly adhere to the following routing rules:
 
-1. **Lowercase Casing Enforced**: All physical filenames and directories must remain strictly lowercase (e.g., `ingredients.html`, not `Ingredients.html`).
-2. **Absolute Lowercase References**: All navigation and footer link values must be lowercase:
-   ```html
-   <!-- CORRECT -->
-   <a href="story.html">Our Story</a>
-   
-   <!-- INCORRECT (Will break on case-sensitive servers) -->
-   <a href="Story.html">Our Story</a>
-   ```
-3. **Disallow Admin from Crawling**: Never link to `admin.html` with standard anchor tags. Keep the panel unreachable from the normal storefront links, maintaining the `noindex, nofollow` rules.
+1. **Lowercase Casing Enforced**: All physical filenames and directories must remain strictly lowercase (e.g., `pages/about/`, not `Pages/About/`).
+2. **Remove `.html` Extensions**: Internal anchor links must link directly to the folders (e.g. `href="pages/about"` or `href="../../blog"`) rather than referencing `.html` extensions. This maintains clean, extensionless, high-ranking search URLs.
+3. **Relative Path Depth Awareness**: When editing nested templates, always adjust references to assets and other pages relative to the file's directory depth:
+   *   Depth 1 (Root): `assets/css/...`, `pages/about`, `blog`
+   *   Depth 2 (Subfolders): `../../assets/css/...`, `../../pages/about`, `../../blog`
+   *   Depth 3 (Deep folders): `../../../assets/css/...`, `../../../pages/about`, `../../../blog`
+4. **Disallow Admin from Crawling**: Maintain the `Disallow: /admin/` rule inside `robots.txt` to keep the private panel isolated from search engines.
