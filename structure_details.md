@@ -12,7 +12,7 @@ Below is the complete physical organization of the Neelveda storefront codebase:
 neelveda/
 │
 ├── index.html                       # Direct E-Commerce Landing Page (Vedic theme, dynamic features)
-├── robots.txt                       # Search crawler directives (disallows secure admin panel)
+├── robots.txt                       # Search crawler directives (disallows secure admin & checkout)
 ├── sitemap.xml                      # Complete extensionless search engine crawler roadmap
 ├── .htaccess                        # Apache 301 SEO redirects for old .html paths
 ├── structure_details.md             # Developer architecture blueprint (this file)
@@ -35,9 +35,11 @@ neelveda/
 │   ├── reviews/index.html           # Star rating aggregate reviews database panel
 │   ├── faq/index.html               # FAQ Q&As mapped to structural search snippets
 │   ├── shipping/index.html          # Indian shipping terms, COD and logistics policies
-│   ├── privacy-policy/index.html    # Privacy and security guidelines
-│   ├── terms/index.html             # Terms of service and usage conditions
 │   └── checkout/index.html          # Secured billing, discount coupon calculations
+│
+├── ⚖️ legal/                         # Unified Legal & Standards Compliance Pages (Depth 3)
+│   ├── privacy-policy/index.html    # Privacy and security guidelines
+│   └── terms/index.html             # Terms of service and usage conditions
 │
 ├── ✍️ blog/                         # Topical Authority & Organic Search Journal
 │   ├── index.html                   # Educational Blog Dashboard
@@ -70,9 +72,9 @@ neelveda/
 | **`reviews/`** | 2 | Verified customer rating reviews panel. | Displays mock statistics and aggregates rating score charts. |
 | **`faq/`** | 2 | Customer FAQ accordion center. | Mapped to FAQPage JSON-LD schemas inside search snippets. |
 | **`shipping/`** | 2 | COD and Indian shipping guidelines. | Legal policies compliance for merchant account approval. |
-| **`privacy-policy/`** | 2 | Customer privacy rights. | Standards compliance page. |
-| **`terms/`** | 2 | Legal terms of service. | Standards compliance page. |
 | **`checkout/`** | 2 | Secular checkout and shipping cost calculator. | Leverages `assets/css/checkout.css` and `assets/js/checkout.js`. |
+| **`legal/privacy-policy/`** | 3 | Customer privacy rights. | Standards compliance page. Relative assets linked via `../../assets/`. |
+| **`legal/terms/`** | 3 | Legal terms of service. | Standards compliance page. Relative assets linked via `../../assets/`. |
 | **`products/herbal-oil/`** | 3 | Premium single/combo product selector and WhatsApp checkout triggers. | Links up relative via `../../` to assets. Launches custom client triggers. |
 | **`blog/`** | 2 | Main journal dashboard, indexing natural remedies articles. | High organic search driver. Links to nested article folders. |
 | **`blog/bhringraj-benefits/`** | 3 | Deep article on vasodilation follicular recovery. | Individual reading template with structured Breadcrumbs list schema. |
@@ -92,6 +94,6 @@ To maintain the high SEO standard achieved across this project, developers must 
 3. **Relative Path Depth Awareness**: When editing nested templates, always adjust references to assets and other pages relative to the file's directory depth:
    *   Depth 1 (Root): `assets/css/...`, `about/`, `blog/`
    *   Depth 2 (Root folders): `../assets/css/...`, `../about/`, `../blog/`
-   *   Depth 3 (Subfolders): `../../assets/css/...`, `../../about/`, `../../blog/`
+   *   Depth 3 (Subfolders/legal folders): `../../assets/css/...`, `../../about/`, `../../blog/`
 4. **Apache Redirect Rules**: All old `.html` paths are 301 redirected inside `.htaccess` to point to their corresponding root-level trailing slash folders.
-5. **Disallow Admin from Crawling**: Maintain the `Disallow: /admin/` rule inside `robots.txt` to keep the private panel isolated from search engines.
+5. **Disallow Admin & Checkout from Crawling**: Maintain the `Disallow: /admin/` and `Disallow: /checkout/` rules inside `robots.txt` to keep these directories isolated from search engines.
