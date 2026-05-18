@@ -47,6 +47,16 @@ RewriteRule ^ayurvedic-hair-care-routine\.html$ /blog/ayurvedic-hair-care-routin
 RewriteRule ^coconut-oil-for-hair-growth\.html$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
 RewriteRule ^techora\.html$ /blog/techora/ [R=301,L]
 
+# Correct malformed root-level blog prefix requests (caused by missing trailing slash on /blog index)
+RewriteRule ^blogbhringraj-benefits/?$ /blog/bhringraj-benefits/ [R=301,L]
+RewriteRule ^blogreduce-hair-fall-naturally/?$ /blog/reduce-hair-fall-naturally/ [R=301,L]
+RewriteRule ^blogayurvedic-hair-care-routine/?$ /blog/ayurvedic-hair-care-routine/ [R=301,L]
+RewriteRule ^blogcoconut-oil-for-hair-growth/?$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
+RewriteRule ^blogtechora/?$ /blog/techora/ [R=301,L]
+
+# Correct malformed blog/blog or duplicate blog prefix requests
+RewriteRule ^blog/blog(.*)$ /blog/$1 [R=301,L]
+
 # Redirect the short-lived /pages/ prefix to prevent search indexing splits
 RewriteRule ^pages/about/?$ /about/ [R=301,L]
 RewriteRule ^pages/ingredients/?$ /ingredients/ [R=301,L]
