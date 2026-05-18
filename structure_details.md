@@ -49,8 +49,10 @@ neelveda/
 │   │   └── index.html               # Article: Freeing scalp pores and botanical cooling
 │   ├── ayurvedic-hair-care-routine/
 │   │   └── index.html               # Article: Dinacharya daily and Shiro Abhyanga weekly rituals
-│   └── coconut-oil-for-hair-growth/
-│       └── index.html               # Article: Molecular lauric acid keratin penetrative shield
+│   ├── coconut-oil-for-hair-growth/
+│   │   └── index.html               # Article: Molecular lauric acid keratin penetrative shield
+│   └── techora/
+│       └── index.html               # Isolated backlink case study for techora.in (unlisted)
 │
 ├── 🛒 products/                     # Secure Product Catalog Layouts
 │   └── herbal-oil/index.html        # Detailed presentation page, size selections, whatsapp CTA
@@ -81,6 +83,7 @@ neelveda/
 | **`blog/reduce-hair-fall-naturally/`** | 3 | Deep article on scalp pores and anti-inflammatory cooling. | Individual reading template with structured Breadcrumbs list schema. |
 | **`blog/ayurvedic-hair-care-routine/`** | 3 | Deep article on daily Dinacharya & weekly massages. | Individual reading template with structured Breadcrumbs list schema. |
 | **`blog/coconut-oil-for-hair-growth/`** | 3 | Deep article on lauric acid and keratin protein affinity. | Individual reading template with structured Breadcrumbs list schema. |
+| **`blog/techora/`** | 3 | Isolated case study article linking to techora.in (unlisted for search indexing support). | Direct follow-link backlink support node. |
 | **`admin/`** | 2 | Private sales and orders simulator dashboard. | **Strictly noindexed** via `robots.txt` disallow `/admin/` and head meta tags. |
 
 ---
