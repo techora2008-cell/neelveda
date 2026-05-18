@@ -17,7 +17,7 @@
             const contentHTML = `
                 <div class="custom-alert-content">
                     <div class="custom-alert-header">
-                        <img src="images/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
+                        <img src="images/logo/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
                         <span class="custom-alert-title">NEELVEDA</span>
                     </div>
                     <div class="custom-alert-divider"></div>

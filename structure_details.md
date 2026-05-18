@@ -26,7 +26,30 @@ neelveda/
 │   │   ├── checkout.js              # E-commerce shipping/coupon engine, WhatsApp dispatcher
 │   │   └── alert.js                 # Premium alert modal animation triggers
 │   ├── fonts/                       # Custom local brand typography
-│   └── images/                      # Premium e-commerce renders & ingredient assets
+│   └── images/                      # Reorganized Premium E-commerce & Design Assets
+│       ├── logo/
+│       │   └── logo.png             # Premium brand crest logo
+│       ├── products/
+│       │   └── mobile/              # High-conversion product combo pack renders
+│       │       ├── mobile-3-pack.png
+│       │       ├── mobile-5-pack.png
+│       │       └── mobile-10-pack.png
+│       └── design/
+│           ├── after-before/        # Hair transformation social proof
+│           │   ├── before/before_hair.png
+│           │   └── after/after_hair.png
+│           ├── ingredients/         # Active botanical active components
+│           │   ├── bhringraj.png
+│           │   ├── amla.png
+│           │   ├── aloevera.png
+│           │   └── ingredients.png
+│           └── web/                 # Custom branding, heros, and backgrounds
+│               ├── hibiscus.png
+│               ├── texture.png
+│               ├── about-us/Hero image.png
+│               └── hero/
+│                   ├── hero.png
+│                   └── hero background.png
 │
 ├── 📂 Core Pages (Depth 2 - Root-Level Folders)
 │   ├── about/index.html             # Brand heritage, Kerala slow-cook roots, Vedic history
@@ -89,8 +112,6 @@ neelveda/
 ---
 
 ## 📜 Link Routing & Case-Sensitivity Policies
-
-To maintain the high SEO standard achieved across this project, developers must strictly adhere to the following routing rules:
 
 1. **Lowercase Casing Enforced**: All physical filenames and directories must remain strictly lowercase (e.g., `about/`, not `About/`).
 2. **Remove `.html` Suffixes**: Internal anchor links must link directly to the folders with trailing slashes (e.g. `href="about/"` or `href="../blog/"`) rather than referencing `.html` extensions. This maintains clean, extensionless, high-ranking search URLs.

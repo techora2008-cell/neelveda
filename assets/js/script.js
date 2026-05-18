@@ -10,7 +10,7 @@
             const contentHTML = `
                 <div class="custom-alert-content">
                     <div class="custom-alert-header">
-                        <img src="images/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
+                        <img src="images/logo/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
                         <span class="custom-alert-title">NEELVEDA</span>
                     </div>
                     <div class="custom-alert-divider"></div>
@@ -483,7 +483,7 @@ document.querySelectorAll('.ad-clean-btn').forEach(btn => {
         
         // Find the image source associated with this combo pack
         const cardInner = btn.closest('.ad-card-inner');
-        let imageSrc = "images/100ml-main.jpg"; // Default fallback
+        let imageSrc = "images/design/web/hero/hero.png"; // Default fallback
         if (cardInner) {
             const imgEl = cardInner.querySelector('.ad-clean-image img');
             if (imgEl) {

@@ -10,7 +10,7 @@
             const contentHTML = `
                 <div class="custom-alert-content">
                     <div class="custom-alert-header">
-                        <img src="images/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
+                        <img src="images/logo/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
                         <span class="custom-alert-title">NEELVEDA</span>
                     </div>
                     <div class="custom-alert-divider"></div>
@@ -189,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutData.image) {
             summaryThumb.src = checkoutData.image;
         } else if (settings.productName.includes("3 Combo Pack")) {
-            summaryThumb.src = "images/clean-combo-3.png";
+            summaryThumb.src = "images/products/mobile/mobile-3-pack.png";
         } else if (settings.productName.includes("5 Combo Pack")) {
-            summaryThumb.src = "images/clean-combo-5.png";
+            summaryThumb.src = "images/products/mobile/mobile-5-pack.png";
         } else if (settings.productName.includes("10 Combo Pack")) {
-            summaryThumb.src = "images/clean-combo-10.png";
+            summaryThumb.src = "images/products/mobile/mobile-10-pack.png";
         } else {
-            summaryThumb.src = "images/100ml-main.jpg";
+            summaryThumb.src = "images/design/web/hero/hero.png";
         }
     }
 
