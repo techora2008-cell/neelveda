@@ -1967,9 +1967,12 @@ footer {
     .footer-bottom {
         padding-top: var(--spacing-md);
         border-top: 1px solid rgba(160, 176, 168, 0.05);
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
         font-size: 0.85rem;
-        opacity: 0.8;
     }
 
 .footer-legal-links {
@@ -3657,5 +3660,35 @@ footer {
     }
     .trust-badge-item {
         font-size: 0.75rem;
+    }
+}
+
+/* --- Developer Credit Backlink Styling --- */
+.developer-credit {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+    font-family: var(--font-sans);
+}
+
+.developer-credit a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.developer-credit a:hover {
+    color: var(--text-main);
+    border-bottom-color: var(--accent-gold);
+}
+
+@media (max-width: 600px) {
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 0.6rem !important;
     }
 }
