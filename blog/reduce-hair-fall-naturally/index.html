@@ -8,6 +8,30 @@
     <link rel="icon" type="image/png" href="../../assets/images/logo.png">
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://neelveda.in/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Journal",
+        "item": "https://neelveda.in/blog/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Reduce Hair Fall Naturally: A Complete Ayurvedic Guide",
+        "item": "https://neelveda.in/blog/reduce-hair-fall-naturally/"
+      }]
+    }
+    </script>
 </head>
 <body>
 
@@ -20,9 +44,9 @@
             <ul class="nav-links">
                 <li><a href="../../">Home</a></li>
                 <li><a href="../../#combos">Offers</a></li>
-                <li><a href="../../pages/benefits">Benefits</a></li>
-                <li><a href="../../pages/about">Our Story</a></li>
-                <li><a href="../../blog">Journal</a></li>
+                <li><a href="../../benefits/">Benefits</a></li>
+                <li><a href="../../about/">Our Story</a></li>
+                <li><a href="../../blog/">Journal</a></li>
                 <li><a href="../../#contact">Contact</a></li>
             </ul>
         </div>
@@ -30,6 +54,18 @@
 
     <main style="padding-top: 10rem; padding-bottom: 6rem; background-color: var(--bg-primary);">
         <article class="container" style="max-width: 720px; margin: 0 auto;">
+            
+            <!-- Breadcrumbs Navigation -->
+            <nav aria-label="breadcrumb" style="margin-bottom: 2rem; text-align: center;">
+                <ol style="list-style: none; padding: 0; margin: 0; display: inline-flex; gap: 8px; font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-sans);">
+                    <li><a href="../../" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Home</a></li>
+                    <li>&bull;</li>
+                    <li><a href="../../blog/" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;">Journal</a></li>
+                    <li>&bull;</li>
+                    <li style="color: var(--accent-gold); font-weight: 500;">How to Reduce Hair Fall Naturally: A Complete Ayurvedic Guide</li>
+                </ol>
+            </nav>
+            
             <p style="color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; margin-bottom: 1rem; text-align: center;">Natural Remedies</p>
             <h1 style="font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; text-align: center; margin-bottom: 1.5rem; color: var(--text-main);">How to Reduce Hair Fall Naturally: A Complete Ayurvedic Guide</h1>
             <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 3rem;">Published on May 16, 2026 &bull; 5 min read</p>
@@ -53,7 +89,7 @@
 
             <!-- Back to journal -->
             <div style="text-align: center;">
-                <a href="../../blog" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px;">
+                <a href="../../blog/" style="color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-arrow-left" style="font-size: 0.85rem;"></i> Back to Hair Care Journal
                 </a>
             </div>

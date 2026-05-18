@@ -1,0 +1,39 @@
+# --- NEELVEDA ENTERPRISE SEO REDIRECTS ---
+RewriteEngine On
+RewriteBase /
+
+# Redirect old .html storefront pages to clean folder trailing slash URLs
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^story\.html$ /about/ [R=301,L]
+RewriteRule ^about\.html$ /about/ [R=301,L]
+RewriteRule ^ingredients\.html$ /ingredients/ [R=301,L]
+RewriteRule ^benefits\.html$ /benefits/ [R=301,L]
+RewriteRule ^review\.html$ /reviews/ [R=301,L]
+RewriteRule ^reviews\.html$ /reviews/ [R=301,L]
+RewriteRule ^faq\.html$ /faq/ [R=301,L]
+RewriteRule ^shipping-returns\.html$ /shipping/ [R=301,L]
+RewriteRule ^shipping\.html$ /shipping/ [R=301,L]
+RewriteRule ^privacy-policy\.html$ /privacy-policy/ [R=301,L]
+RewriteRule ^terms-of-service\.html$ /terms/ [R=301,L]
+RewriteRule ^terms\.html$ /terms/ [R=301,L]
+RewriteRule ^checkout\.html$ /checkout/ [R=301,L]
+RewriteRule ^blog\.html$ /blog/ [R=301,L]
+RewriteRule ^product-detail\.html$ /products/herbal-oil/ [R=301,L]
+RewriteRule ^admin\.html$ /admin/ [R=301,L]
+
+# Redirect old blog .html posts to clean directories
+RewriteRule ^blog/bhringraj-benefits\.html$ /blog/bhringraj-benefits/ [R=301,L]
+RewriteRule ^blog/reduce-hair-fall-naturally\.html$ /blog/reduce-hair-fall-naturally/ [R=301,L]
+RewriteRule ^blog/ayurvedic-hair-care-routine\.html$ /blog/ayurvedic-hair-care-routine/ [R=301,L]
+RewriteRule ^blog/coconut-oil-for-hair-growth\.html$ /blog/coconut-oil-for-hair-growth/ [R=301,L]
+
+# Redirect the short-lived /pages/ prefix to prevent search indexing splits
+RewriteRule ^pages/about/?$ /about/ [R=301,L]
+RewriteRule ^pages/ingredients/?$ /ingredients/ [R=301,L]
+RewriteRule ^pages/benefits/?$ /benefits/ [R=301,L]
+RewriteRule ^pages/reviews/?$ /reviews/ [R=301,L]
+RewriteRule ^pages/faq/?$ /faq/ [R=301,L]
+RewriteRule ^pages/shipping/?$ /shipping/ [R=301,L]
+RewriteRule ^pages/privacy-policy/?$ /privacy-policy/ [R=301,L]
+RewriteRule ^pages/terms/?$ /terms/ [R=301,L]
+RewriteRule ^pages/checkout/?$ /checkout/ [R=301,L]
