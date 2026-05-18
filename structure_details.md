@@ -72,7 +72,8 @@ neelveda/
 │
 ├── ⚖️ legal/                         # Unified Legal & Standards Compliance Pages (Depth 3)
 │   ├── privacy-policy/index.html    # Privacy and security guidelines
-│   └── terms/index.html             # Terms of service and usage conditions
+│   ├── terms/index.html             # Terms of service and usage conditions
+│   └── copyright/index.html         # Copyright protection guidelines
 │
 ├── ✍️ blog/                         # Topical Authority & Organic Search Journal
 │   ├── index.html                   # Educational Blog Dashboard
@@ -110,6 +111,7 @@ neelveda/
 | **`checkout/`** | 2 | Secular checkout and shipping cost calculator. | Leverages `assets/css/checkout.css` and `assets/js/checkout.js`. |
 | **`legal/privacy-policy/`** | 3 | Customer privacy rights. | Standards compliance page. Relative assets linked via `../../assets/`. |
 | **`legal/terms/`** | 3 | Legal terms of service. | Standards compliance page. Relative assets linked via `../../assets/`. |
+| **`legal/copyright/`** | 3 | Legal copyright notice and content usage guidelines. | Standards compliance page. Relative assets linked via `../../assets/`. |
 | **`products/herbal-oil/`** | 3 | Premium single/combo product selector and WhatsApp checkout triggers. | Links up relative via `../../` to assets. Launches custom client triggers. |
 | **`blog/`** | 2 | Main journal dashboard, indexing natural remedies articles. | High organic search driver. Links to nested article folders. |
 | **`blog/bhringraj-benefits/`** | 3 | Deep article on vasodilation follicular recovery. | Individual reading template with structured Breadcrumbs list schema. |
