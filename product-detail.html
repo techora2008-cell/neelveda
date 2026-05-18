@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neelveda Ayurvedic Hair Oil | Premium Hair Growth & Fall Control</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <style>
+        .product-page {
+            padding-top: 150px;
+            /* Offset for fixed navbar + announcement bar */
+            min-height: 100vh;
+            background: var(--bg-primary);
+        }
+
+        /* Detail Page Nav Fix */
+        nav {
+            background: rgba(13, 23, 18, 0.8) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .product-gallery {
+            position: sticky;
+            top: 120px;
+        }
+
+        .main-image-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 40px;
+            padding: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden; /* Prevent zoomed image from leaking out of the container */
+        }
+
+        .main-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transform-origin: center center;
+        }
+
+        /* Hover states for zero-latency zoom tracking */
+        .main-image-container.tracking img {
+            transition: none !important;
+        }
+
+        /* Smoothly fade out gallery arrows during hover zoom so they don't block the view */
+        .main-image-container:hover .gallery-arrow {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .thumbnail-gallery {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        .thumb-item {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            padding: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .thumb-item.active {
+            border-color: var(--accent-gold);
+            background: rgba(242, 208, 77, 0.1);
+        }
+
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.8;
+        }
+
+        .gallery-arrow:hover {
+            opacity: 1;
+            color: #fff;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .gallery-arrow.prev {
+            left: 1rem;
+        }
+
+        .gallery-arrow.next {
+            right: 1rem;
+        }
+
+
+        /* Benefits Styles */
+        .benefits-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .benefits-list {
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start !important;
+            gap: 12px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .benefit-icon {
+            width: 24px !important;
+            height: 24px !important;
+            min-width: 24px !important;
+            max-width: 24px !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        .benefit-icon svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+            stroke: #F2D04D;
+        }
+
+        .benefit-text {
+            font-size: 0.95rem !important;
+            color: var(--text-main);
+            font-weight: 500;
+            line-height: 1.2;
+            margin: 0 !important;
+            padding: 0 !important;
+            text-align: left !important;
+        }
+
+
+        .product-info h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .product-meta {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .current-price {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .selection-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .selection-label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-earth);
+            margin-bottom: 1rem;
+        }
+
+        .detail-actions {
+            margin-top: 2rem;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .checkout-btn {
+            flex: 1;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 100px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px rgba(242, 208, 77, 0.2);
+            cursor: pointer;
+            border: none;
+        }
+
+        .qty-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.5rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qty-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(242, 208, 77, 0.3);
+            background: transparent;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .qty-btn:hover {
+            background: rgba(242, 208, 77, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .qty-val {
+            font-size: 1.5rem;
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+
+
+
+        .checkout-btn:hover {
+            transform: translateY(-5px);
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(242, 208, 77, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .product-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 2rem !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .product-gallery {
+                position: relative !important;
+                top: 0 !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+        }
+
+        /* Desktop Gallery Layout */
+        @media (min-width: 993px) {
+            .product-gallery {
+                display: flex;
+                gap: 2rem;
+                flex-direction: row-reverse;
+                align-items: flex-start;
+            }
+
+            .main-image-container {
+                flex: 1;
+                margin-bottom: 0;
+                aspect-ratio: 4/5;
+                height: 600px;
+            }
+
+            .thumbnail-gallery {
+                flex-direction: column;
+                margin-top: 0;
+                width: 100px;
+            }
+
+            .thumb-item {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+            .mobile-only {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                /* Hide standard nav on mobile detail page */
+            }
+
+            .product-page {
+                padding-top: 120px;
+                /* 34px bar + 56px header + 30px gap */
+                padding-bottom: 100px;
+            }
+
+            .detail-actions,
+            .selection-group:has(.qty-wrapper) {
+                display: none;
+                /* Hide original actions and quantity selector on mobile */
+            }
+
+            /* Mobile Header */
+            .mobile-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 56px;
+                background: var(--bg-primary);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 1.2rem;
+                z-index: 1000;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* Announcement Bar adjustment for Product Detail Mobile */
+            .mobile-header~.announcement-bar {
+                top: 56px;
+                padding: 6px 0;
+                font-size: 0.65rem;
+                z-index: 999;
+            }
+
+            .m-header-left {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .m-nav-logo {
+                width: 35px;
+                height: 35px;
+                border-radius: 8px;
+                border: 1px solid var(--accent-gold);
+            }
+
+            .m-logo-text {
+                font-family: var(--font-serif);
+                font-size: 1.2rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                color: var(--text-main);
+            }
+
+            .m-back-home {
+                background: var(--accent-gold);
+                color: var(--bg-primary);
+                padding: 0.6rem 1.2rem;
+                border-radius: 100px;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                box-shadow: 0 4px 15px rgba(242, 208, 77, 0.2);
+            }
+
+            /* Mobile Bottom Bar */
+            .mobile-bottom-bar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 80px;
+                background: var(--bg-primary);
+                display: flex;
+                align-items: center;
+                padding: 0 1rem;
+                gap: 0.8rem;
+                z-index: 1000;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .m-qty-adjustment {
+                flex: 1;
+                height: 50px;
+                background: var(--bg-secondary);
+                border: 1px solid rgba(242, 208, 77, 0.3);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 0.8rem;
+            }
+
+            .m-qty-btn {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                border: none;
+                background: rgba(255, 255, 255, 0.05);
+                color: var(--accent-gold);
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+            }
+
+            .m-qty-val {
+                font-family: var(--font-sans);
+                font-weight: 700;
+                color: var(--text-main);
+                font-size: 1.2rem;
+            }
+
+            .m-buy-now-btn {
+                flex: 1.2;
+                height: 50px;
+                background: #FFD814;
+                /* Amazon Yellow */
+                color: #111;
+                border-radius: 12px;
+                border: none;
+                font-weight: 700;
+                font-size: 0.95rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                line-height: 1.2;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .main-image-container {
+                padding: 1.5rem;
+                border-radius: 24px;
+                margin-bottom: 1.5rem;
+                aspect-ratio: 1 / 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                position: relative;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .product-gallery {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .main-image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 12px;
+            }
+
+
+
+            .gallery-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 44px;
+                height: 44px;
+                background: transparent;
+                border: none;
+                color: var(--accent-gold);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 10;
+                transition: all 0.3s ease;
+            }
+
+            .gallery-arrow:active {
+                background: var(--accent-gold);
+                color: var(--bg-primary);
+            }
+
+            .thumb-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Consistent square thumbnails */
+                border-radius: 8px;
+            }
+
+            .benefits-list {
+                display: grid;
+                gap: 1rem 0.5rem;
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+                border-radius: 16px;
+            }
+
+            .benefits-header {
+                display: block;
+                font-size: 0.7rem;
+                margin-top: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .benefit-item {
+                gap: 8px !important;
+            }
+
+            .benefit-icon {
+                width: 20px !important;
+                height: 20px !important;
+                min-width: 20px !important;
+                max-width: 20px !important;
+                padding: 0 !important;
+            }
+
+            .benefit-text {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* New Extended Details Styles */
+        .product-details-extra {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.01);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .extra-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .extra-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-gold);
+            margin-bottom: 3rem;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .extra-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: var(--accent-gold);
+            opacity: 0.5;
+        }
+
+        /* Usage Steps */
+        .usage-steps {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            font-family: var(--font-sans);
+            /* Normal font */
+            font-size: 2.5rem;
+            color: rgba(242, 208, 77, 0.2);
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .step-content h4 {
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Ingredient Highlights */
+        .ing-highlights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .ing-highlight-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%);
+            padding: 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ing-highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(242, 208, 77, 0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .ing-highlight-card:hover::before {
+            opacity: 1;
+        }
+
+        .ing-highlight-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .ing-highlight-card:hover {
+            border-color: rgba(242, 208, 77, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(242, 208, 77, 0.05);
+        }
+
+        .ing-highlight-card h4 {
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .ing-highlight-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Full Ingredients Pills Styling */
+        .ingredients-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .ingredient-pill {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.75);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(5px);
+            cursor: default;
+        }
+
+        .ingredient-pill:hover {
+            background: linear-gradient(135deg, rgba(242, 208, 77, 0.08) 0%, rgba(16, 185, 129, 0.03) 100%);
+            border-color: rgba(242, 208, 77, 0.3);
+            color: var(--accent-gold);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(242, 208, 77, 0.05);
+        }
+
+        /* Spacing between Product Info and Reviews */
+        .product-reviews-section {
+            margin-top: 8rem;
+            padding-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .product-reviews-section {
+                margin-top: 4rem !important;
+                padding-top: 3rem !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .extra-grid {
+                grid-template-columns: 1fr;
+                gap: 5rem;
+            }
+
+            .product-details-extra {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .ing-highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .step-item {
+                gap: 1.2rem;
+            }
+
+            .step-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* --- Luxury Image Lightbox Modal for Mobile Detailed View --- */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 20, 15, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(242, 208, 77, 0.3);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover, .lightbox-close:active {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-wrapper {
+            width: 100%;
+            max-height: 65vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox-modal.active .lightbox-img-wrapper {
+            transform: scale(1);
+        }
+
+        .lightbox-img-wrapper img {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            padding: 1.5rem;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
+        }
+
+        .lightbox-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(13, 23, 18, 0.6);
+            border: 1px solid rgba(242, 208, 77, 0.3);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10001;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-arrow:hover, .lightbox-arrow:active {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .lightbox-arrow.prev {
+            left: -22px;
+        }
+
+        .lightbox-arrow.next {
+            right: -22px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--text-main);
+            pointer-events: none;
+        }
+
+        .lightbox-product-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            color: #fff;
+        }
+
+        .lightbox-image-counter {
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 768px) {
+            #main-product-img {
+                cursor: pointer;
+            }
+            .lightbox-arrow.prev {
+                left: 5px;
+            }
+            .lightbox-arrow.next {
+                right: 5px;
+            }
+            .lightbox-img-wrapper {
+                border-radius: 16px;
+                max-height: 60vh;
+            }
+            .lightbox-img-wrapper img {
+                max-height: 60vh;
+                padding: 1rem;
+            }
+        }
+
+        /* Reviews Section Styles */
+        .product-reviews-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(0, 45, 36, 0.4) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .reviews-title {
+            font-size: 3rem;
+            color: var(--text-main);
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rating-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(242, 208, 77, 0.15);
+            padding: 1.5rem 3rem;
+            border-radius: 30px;
+            display: inline-flex;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .summary-score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: var(--font-sans);
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .summary-stars {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .summary-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 32px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .review-card::before {
+            content: '“';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            color: rgba(242, 208, 77, 0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(242, 208, 77, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .avatar-initials {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 59, 47, 0.6);
+            border: 1px solid rgba(242, 208, 77, 0.3);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .reviewer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .reviewer-name {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-family: var(--font-serif);
+            letter-spacing: 0.05em;
+        }
+
+        .verified-badge {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .verified-badge svg {
+            stroke: var(--accent-gold);
+        }
+
+        .review-rating {
+            margin-left: auto;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .review-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: var(--accent-earth);
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .reviews-more-container {
+            text-align: center;
+            margin-top: 3.5rem;
+        }
+
+        .reviews-more-btn {
+            padding: 1.2rem 3.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 992px) {
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-reviews-section {
+                padding: 45px 0 35px 0;
+            }
+            .reviews-header {
+                margin-bottom: 2.2rem;
+            }
+            .reviews-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            .rating-summary {
+                padding: 1rem 1.8rem;
+            }
+            .summary-score {
+                font-size: 2.5rem;
+            }
+            .summary-stars {
+                font-size: 1.2rem;
+            }
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .review-card {
+                padding: 1.8rem;
+            }
+            .reviews-grid .review-card:nth-child(3) {
+                display: none;
+            }
+            .reviews-more-container {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+
+    <!-- SEO & Metadata Standardization -->
+    <link rel="canonical" href="https://neelveda.in/product-detail.html">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <meta property="og:title" content="Neelveda Herbal Oil | Product Details">
+    <meta property="og:description" content="Discover pure liquid gold for your hair. Neelveda is a concentrated blend of rare ayurvedic botanicals like Bhringraj, Hibiscus, Amla, and Aloe Vera cold-pressed in Virgin Coconut Oil.">
+    <meta property="og:image" content="https://neelveda.in/images/logo.png">
+    <meta property="og:url" content="https://neelveda.in/product-detail.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Neelveda">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neelveda Herbal Oil | Product Details">
+    <meta name="twitter:description" content="Discover pure liquid gold for your hair. Neelveda is a concentrated blend of rare ayurvedic botanicals like Bhringraj, Hibiscus, Amla, and Aloe Vera cold-pressed in Virgin Coconut Oil.">
+    <meta name="twitter:image" content="https://neelveda.in/images/logo.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Neelveda Herbal Hair Oil",
+        "image": [
+            "https://neelveda.in/images/100ml-main.jpg",
+            "https://neelveda.in/images/clean-combo-3.png",
+            "https://neelveda.in/images/clean-combo-5.png",
+            "https://neelveda.in/images/clean-combo-10.png"
+        ],
+        "description": "Discover pure liquid gold for your hair. Neelveda is a concentrated blend of rare ayurvedic botanicals like Bhringraj, Hibiscus, Amla, and Aloe Vera cold-pressed in Virgin Coconut Oil.",
+        "sku": "NV-HERBAL-OIL-100",
+        "mpn": "NV-HO-100",
+        "brand": {
+            "@type": "Brand",
+            "name": "Neelveda"
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Aishwarya R."
+                },
+                "datePublished": "2026-05-12",
+                "reviewBody": "My hair fall literally stopped within 2 weeks of using the Neelveda Ritual. The texture feels like pure silk and the shine is absolutely cinematic."
+            },
+            {
+                "@type": "Review",
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5",
+                    "bestRating": "5"
+                },
+                "author": {
+                    "@type": "Person",
+                    "name": "Devendra S."
+                },
+                "datePublished": "2026-04-28",
+                "reviewBody": "This is not just hair oil, it is a sacred self-care experience. The aroma of Bhringraj and Hibiscus is deeply calming."
+            }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "142"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "INR",
+            "lowPrice": "249",
+            "highPrice": "2000",
+            "offerCount": "4",
+            "priceValidUntil": "2027-12-31",
+            "url": "https://neelveda.in/product-detail.html",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header mobile-only">
+        <div class="m-header-left">
+            <img src="images/logo.png" alt="Logo" class="m-nav-logo">
+            <span class="m-logo-text">NEELVEDA</span>
+        </div>
+        <a href="index.html" class="m-back-home">BACK TO HOME</a>
+    </header>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo-wrapper">
+                <img src="images/logo.png" alt="Neelveda Logo" class="nav-logo">
+                <span class="logo">NEELVEDA</span>
+            </a>
+            <a href="index.html" class="btn btn-secondary" style="padding: 0.8rem 1.5rem;">Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <div class="announcement-content">
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <span>Best offers</span>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <span>Best offers</span>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <span>Best offers</span>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <span>Best offers</span>
+                <span class="dot">•</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="product-page">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Left: Gallery -->
+                <div class="product-gallery">
+                    <div class="main-image-container">
+                        <button class="gallery-arrow prev" onclick="navigateGallery(-1)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <img id="main-product-img" src="images/100ml-main.jpg" alt="Neelveda Herbal Oil" onclick="openLightbox()">
+                        <button class="gallery-arrow next" onclick="navigateGallery(1)">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Thumbnails -->
+                    <div class="thumbnail-gallery">
+                        <div class="thumb-item active" onclick="changeImage('images/100ml-main.jpg', this)">
+                            <img src="images/100ml-main.jpg" alt="Neelveda 100ml Main">
+                        </div>
+                        <div class="thumb-item" onclick="changeImage('images/100ml-front.png', this)">
+                            <img src="images/100ml-front.png" alt="Neelveda 100ml Front">
+                        </div>
+                        <div class="thumb-item" onclick="changeImage('images/100ml back.png', this)">
+                            <img src="images/100ml back.png" alt="Neelveda 100ml Back">
+                        </div>
+                        <div class="thumb-item" onclick="changeImage('images/100ml features.png', this)">
+                            <img src="images/100ml features.png" alt="Neelveda 100ml Features">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Details & Selection -->
+                <div class="product-info">
+                    <p class="hero-tagline">Ayurvedic Excellence</p>
+                    <h1>Herbal Oil</h1>
+
+                    <div class="product-meta">
+                        <span class="current-price" id="price-display">₹249.00</span>
+                    </div>
+
+                    <!--
+                    <div class="selection-group">
+                        <span class="selection-label">Select Volume</span>
+                        <div class="size-selector">
+                            <button class="size-btn active" onclick="updateSize('200ml', '₹249.00')">200ml</button>
+                            <button class="size-btn" onclick="updateSize('500ml', '₹499.00')">500ml</button>
+                        </div>
+                    </div>
+                    -->
+
+                    <div class="detail-actions">
+                        <button onclick="proceedToCheckout()" class="checkout-btn">Proceed to Checkout</button>
+                        <div class="qty-wrapper">
+                            <button class="qty-btn" onclick="updateQty(-1)">-</button>
+                            <span class="qty-val" id="qty">1</span>
+                            <button class="qty-btn" onclick="updateQty(1)">+</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Benefits Section -->
+                    <div class="benefits-header">PRODUCT BENEFITS</div>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Accelerates Hair Growth</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Reduces Hair Fall</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Intense Root Nourishment</span>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"
+                                    stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 3v3m0 12v3m9-9h-3M6 12H3m15.364-6.364l-2.121 2.121M7.757 16.243l-2.121 2.121m0-10.607l2.121 2.121m7.071 7.071l2.121 2.121">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Restores Natural Shine</span>
+                        </div>
+                    </div>
+
+
+
+                    <p class="product-description">
+                        A cinematic blend of the rarest Ayurvedic botanicals, including Bhringraj, Hibiscus, and
+                        cold-pressed Virgin Coconut Oil. Crafted to nourish roots, strengthen strands, and restore the
+                        natural brilliance of your hair.
+                    </p>
+
+                    <div class="full-ingredients">
+                        <div class="benefits-header" style="margin-top: 2rem; margin-bottom: 0.8rem; font-size: 0.9rem;">FULL INGREDIENTS</div>
+                        <div class="ingredients-pills">
+                            <span class="ingredient-pill">Coconut Oil</span>
+                            <span class="ingredient-pill">Indigo</span>
+                            <span class="ingredient-pill">Bhringraj</span>
+                            <span class="ingredient-pill">Aloe Vera</span>
+                            <span class="ingredient-pill">Henna</span>
+                            <span class="ingredient-pill">Gooseberry (Amla)</span>
+                            <span class="ingredient-pill">Black Cumin</span>
+                            <span class="ingredient-pill">Himalayas Lily</span>
+                            <span class="ingredient-pill">Sweet Flag</span>
+                            <span class="ingredient-pill">Hibiscus</span>
+                            <span class="ingredient-pill">Tulsi</span>
+                            <span class="ingredient-pill">Curry Leaves</span>
+                            <span class="ingredient-pill">Kohl Stone</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews Section -->
+        <section class="product-reviews-section">
+            <div class="container">
+                <div class="reviews-header">
+                    <p class="hero-tagline">Real Transformations</p>
+                    <h2 class="reviews-title">Voices of Neelveda</h2>
+                    
+                    <div class="rating-summary">
+                        <div class="summary-score">4.9</div>
+                        <div class="summary-stars">★★★★★</div>
+                        <div class="summary-count">Based on 1,482 verified reviews</div>
+                    </div>
+                </div>
+
+                <div class="reviews-grid">
+                    <!-- Card 1 -->
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div class="avatar-initials">AR</div>
+                            <div class="reviewer-info">
+                                <h4 class="reviewer-name">Aishwarya R.</h4>
+                                <div class="verified-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Verified Buyer
+                                </div>
+                            </div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <p class="review-text">
+                            "My hair fall literally stopped within 2 weeks of using the Neelveda Ritual. The texture feels like pure silk and the shine is absolutely cinematic. I love warming it up before massaging it in!"
+                        </p>
+                        <span class="review-date">May 12, 2026</span>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div class="avatar-initials">DS</div>
+                            <div class="reviewer-info">
+                                <h4 class="reviewer-name">Devendra S.</h4>
+                                <div class="verified-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Verified Buyer
+                                </div>
+                            </div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <p class="review-text">
+                            "This is not just hair oil, it is a sacred self-care experience. The aroma of Bhringraj and Hibiscus is deeply calming. My hair feels much thicker, and the dry scalp issue is completely gone."
+                        </p>
+                        <span class="review-date">April 28, 2026</span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="review-card">
+                        <div class="review-meta">
+                            <div class="avatar-initials">MK</div>
+                            <div class="reviewer-info">
+                                <h4 class="reviewer-name">Meera K.</h4>
+                                <div class="verified-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    Verified Buyer
+                                </div>
+                            </div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <p class="review-text">
+                            "A true masterpiece of Ayurveda. After trying countless modern synthetic products, this traditional formula completely revived my damaged hair. Worth every single rupee!"
+                        </p>
+                        <span class="review-date">May 3, 2026</span>
+                    </div>
+                </div>
+
+                <div class="reviews-more-container" style="display: flex; gap: 1.5rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <a href="review.html" class="btn btn-primary reviews-more-btn">See More</a>
+                    <a href="review.html?write=true" class="btn btn-secondary reviews-more-btn">Write A Review</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Extended Product Details -->
+        <section class="product-details-extra">
+            <div class="container">
+                <div class="extra-grid">
+                    <!-- Left: Usage Guide -->
+                    <div class="usage-guide">
+                        <h3 class="extra-title">THE NEELVEDA RITUAL</h3>
+                        <div class="usage-steps">
+                            <div class="step-item">
+                                <div class="step-number">01</div>
+                                <div class="step-content">
+                                    <h4>Warm & Awaken</h4>
+                                    <p>Gently warm a small amount of oil between your palms to activate the botanical
+                                        essences.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">02</div>
+                                <div class="step-content">
+                                    <h4>Root Massage</h4>
+                                    <p>Apply to scalp and massage with fingertips in circular motions for 5-10 minutes
+                                        to stimulate circulation.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">03</div>
+                                <div class="step-content">
+                                    <h4>Deep Rest</h4>
+                                    <p>Distribute through hair lengths and leave for at least 30 minutes, or overnight
+                                        for intensive repair.</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-number">04</div>
+                                <div class="step-content">
+                                    <h4>Gentle Rinse</h4>
+                                    <p>Wash with a mild, Ayurvedic cleanser. Notice the restored brilliance and
+                                        silkiness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Bottom Action Bar -->
+    <div class="mobile-bottom-bar mobile-only">
+        <div class="m-qty-adjustment">
+            <button class="m-qty-btn" onclick="updateQty(-1)">-</button>
+            <span class="m-qty-val" id="m-qty">1</span>
+            <button class="m-qty-btn" onclick="updateQty(1)">+</button>
+        </div>
+        <button class="m-buy-now-btn" onclick="proceedToCheckout()">
+            Buy now
+            <span id="m-price-display">at ₹249.00</span>
+        </button>
+    </div>
+
+    <!-- Lightbox Modal for Mobile Detailed View -->
+    <div id="image-lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox(event)">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-arrow prev" onclick="navigateLightbox(-1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            
+            <div class="lightbox-img-wrapper">
+                <img id="lightbox-img" src="" alt="Detailed View">
+            </div>
+            
+            <button class="lightbox-arrow next" onclick="navigateLightbox(1)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="lightbox-caption">
+            <span class="lightbox-product-title">NEELVEDA HERBAL OIL</span>
+            <span class="lightbox-image-counter" id="lightbox-counter">1 / 4</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Neelveda</a>
+                    <p>Neelveda bridges ancient Ayurvedic wisdom with modern luxury hair care. Crafted in Kerala using
+                        traditional Vedic methods, our formulas nourish your hair from within, restoring its natural
+                        brilliance and vitality.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#combos">Offers</a></li>
+                        <li><a href="index.html#benefits">Benefits</a></li>
+                        <li><a href="index.html#ingredients">Ingredients</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="shipping-returns.html">Shipping & Returns</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neelveda Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/alert.js"></script>
+    <script>
+
+
+
+        let currentQty = 1;
+        let currentSize = '200ml';
+        let currentPrice = '₹249.00';
+
+        function syncAdminProducts() {
+            try {
+                const products = JSON.parse(localStorage.getItem('neelvedaProducts')) || [];
+                const standards = products.filter(p => p.type === 'standard');
+                if (standards.length >= 2) {
+                    const prod200 = standards.find(p => p.volume === '200ml') || standards[0];
+                    const prod500 = standards.find(p => p.volume === '500ml') || standards[1];
+                    
+                    const sizeButtons = document.querySelectorAll('.size-btn');
+                    if (sizeButtons.length >= 2) {
+                        sizeButtons[0].innerHTML = `${prod200.volume || '200ml'}<span class="price-badge">₹${prod200.price}</span>`;
+                        sizeButtons[0].setAttribute('onclick', `updateSize('${prod200.volume || '200ml'}', '₹${prod200.price}.00')`);
+                        
+                        sizeButtons[1].innerHTML = `${prod500.volume || '500ml'}<span class="price-badge">₹${prod500.price}</span>`;
+                        sizeButtons[1].setAttribute('onclick', `updateSize('${prod500.volume || '500ml'}', '₹${prod500.price}.00')`);
+                    }
+                    
+                    currentSize = prod200.volume || '200ml';
+                    currentPrice = `₹${prod200.price}.00`;
+                    
+                    // Update initial pricing texts on screen
+                    const priceDisp = document.getElementById('price-display');
+                    if (priceDisp) priceDisp.textContent = currentPrice;
+                    
+                    const mPriceDisp = document.getElementById('m-price-display');
+                    if (mPriceDisp) mPriceDisp.textContent = `at ${currentPrice}`;
+                }
+            } catch (err) {
+                console.error("Admin products sync failure:", err);
+            }
+        }
+
+        // Execute sync immediately
+        document.addEventListener('DOMContentLoaded', () => {
+            syncAdminProducts();
+            loadCustomReviews();
+        });
+
+        function updateQty(val) {
+            currentQty = Math.max(1, currentQty + val);
+            document.getElementById('qty').textContent = currentQty;
+            document.getElementById('m-qty').textContent = currentQty;
+
+            // Calculate new total price based on base price
+            let basePriceNum = parseFloat(currentPrice.replace(/[^0-9.-]+/g, ""));
+            let total = basePriceNum * currentQty;
+            let formattedTotal = '₹' + total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            document.getElementById('price-display').textContent = formattedTotal;
+            document.getElementById('m-price-display').textContent = `at ${formattedTotal}`;
+        }
+
+        function updateSize(size, price) {
+            currentSize = size;
+            currentPrice = price;
+
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent === size);
+            });
+
+            // Recalculate total price using new base price and current quantity
+            let basePriceNum = parseFloat(currentPrice.replace(/[^0-9.-]+/g, ""));
+            let total = basePriceNum * currentQty;
+            let formattedTotal = '₹' + total.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            document.getElementById('price-display').textContent = formattedTotal;
+            document.getElementById('m-price-display').textContent = `at ${formattedTotal}`;
+        }
+        const galleryImages = [
+            'images/100ml-main.jpg',
+            'images/100ml-front.png',
+            'images/100ml back.png',
+            'images/100ml features.png'
+        ];
+        let currentImgIndex = 0;
+
+        function navigateGallery(step) {
+            currentImgIndex = (currentImgIndex + step + galleryImages.length) % galleryImages.length;
+            const newSrc = galleryImages[currentImgIndex];
+            const thumbs = document.querySelectorAll('.thumb-item');
+            changeImage(newSrc, thumbs[currentImgIndex]);
+        }
+
+        function changeImage(src, thumb) {
+            document.getElementById('main-product-img').src = src;
+            document.querySelectorAll('.thumb-item').forEach(item => item.classList.remove('active'));
+            thumb.classList.add('active');
+
+            // Sync index if changed via thumbnail
+            currentImgIndex = galleryImages.indexOf(src);
+        }
+
+        // Swipe Functionality
+        const imageContainer = document.querySelector('.main-image-container');
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        imageContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        imageContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const deltaX = touchEndX - touchStartX;
+            const threshold = 50;
+            if (deltaX < -threshold) {
+                navigateGallery(1); // Swipe left -> Next
+            } else if (deltaX > threshold) {
+                navigateGallery(-1); // Swipe right -> Prev
+            }
+        }
+
+        // Premium Desktop Image Hover Zoom
+        const mainImg = document.getElementById('main-product-img');
+        if (imageContainer && mainImg) {
+            // Smoothly scale up on mouse enter
+            imageContainer.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 768) {
+                    mainImg.style.transform = 'scale(2.2)';
+                }
+            });
+
+            // Zero-latency pixel-perfect tracking on mouse move
+            imageContainer.addEventListener('mousemove', e => {
+                if (window.innerWidth > 768) {
+                    imageContainer.classList.add('tracking');
+                    
+                    const rect = imageContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const xPercent = (x / rect.width) * 100;
+                    const yPercent = (y / rect.height) * 100;
+                    
+                    mainImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                    mainImg.style.transform = 'scale(2.2)';
+                }
+            });
+            
+            // Smoothly transition back to normal scale on mouse leave
+            imageContainer.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 768) {
+                    imageContainer.classList.remove('tracking');
+                    mainImg.style.transformOrigin = 'center center';
+                    mainImg.style.transform = 'scale(1)';
+                }
+            });
+        }
+
+        function proceedToCheckout() {
+            localStorage.setItem('checkoutQty', currentQty);
+
+            // Save to current checkout selection instead of overwriting admin/general settings
+            const checkoutData = {
+                productName: `Neelveda Herbal Oil (${currentSize})`,
+                price: currentPrice
+            };
+            localStorage.setItem('neelvedaCheckout', JSON.stringify(checkoutData));
+
+            window.location.href = 'checkout.html';
+        }
+
+        // --- Lightbox Modal Functions for Mobile Detailed View ---
+        function openLightbox() {
+            // Only trigger pop up on mobile (width <= 768px)
+            if (window.innerWidth > 768) return;
+
+            const lightbox = document.getElementById('image-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const activeSrc = galleryImages[currentImgIndex];
+            
+            lightboxImg.src = activeSrc;
+            document.getElementById('lightbox-counter').textContent = `${currentImgIndex + 1} / ${galleryImages.length}`;
+            
+            lightbox.style.display = 'flex';
+            // Force reflow
+            lightbox.offsetHeight;
+            lightbox.classList.add('active');
+            
+            // Premium animation with GSAP!
+            gsap.fromTo('#image-lightbox', 
+                { opacity: 0 }, 
+                { opacity: 1, duration: 0.3, ease: 'power2.out' }
+            );
+            gsap.fromTo('.lightbox-img-wrapper', 
+                { scale: 0.8, opacity: 0 }, 
+                { scale: 1, opacity: 1, duration: 0.5, delay: 0.05, ease: 'back.out(1.2)' }
+            );
+            
+            // Prevent scrolling on behind page
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event) {
+                event.stopPropagation();
+            }
+            
+            const lightbox = document.getElementById('image-lightbox');
+            
+            // GSAP out animation
+            gsap.to('.lightbox-img-wrapper', {
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.25,
+                ease: 'power2.in'
+            });
+            
+            gsap.to('#image-lightbox', {
+                opacity: 0,
+                duration: 0.25,
+                delay: 0.05,
+                ease: 'power2.in',
+                onComplete: () => {
+                    lightbox.classList.remove('active');
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
+        function navigateLightbox(step) {
+            currentImgIndex = (currentImgIndex + step + galleryImages.length) % galleryImages.length;
+            const newSrc = galleryImages[currentImgIndex];
+            
+            // Sync background page gallery
+            const thumbs = document.querySelectorAll('.thumb-item');
+            changeImage(newSrc, thumbs[currentImgIndex]);
+            
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            // Elegant transitions for the changing image
+            gsap.to(lightboxImg, {
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.15,
+                ease: 'power2.in',
+                onComplete: () => {
+                    lightboxImg.src = newSrc;
+                    document.getElementById('lightbox-counter').textContent = `${currentImgIndex + 1} / ${galleryImages.length}`;
+                    gsap.to(lightboxImg, {
+                        opacity: 1,
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                }
+            });
+        }
+
+        // Swipe support inside Lightbox
+        const lightboxContent = document.querySelector('.lightbox-content');
+        let lightboxStartX = 0;
+        let lightboxEndX = 0;
+
+        lightboxContent.addEventListener('touchstart', e => {
+            lightboxStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightboxContent.addEventListener('touchend', e => {
+            lightboxEndX = e.changedTouches[0].screenX;
+            handleLightboxSwipe();
+        }, { passive: true });
+
+        function handleLightboxSwipe() {
+            const deltaX = lightboxEndX - lightboxStartX;
+            const threshold = 50;
+            if (deltaX < -threshold) {
+                navigateLightbox(1); // Swipe left -> Next
+            } else if (deltaX > threshold) {
+                navigateLightbox(-1); // Swipe right -> Prev
+            }
+        }
+
+        // --- Load custom reviews on product detail page ---
+        function loadCustomReviews() {
+            try {
+                const storedReviews = JSON.parse(localStorage.getItem('neelvedaCustomReviews')) || [];
+                const grid = document.querySelector('.product-reviews-section .reviews-grid');
+                if (!grid) return;
+                
+                // Render from oldest to newest so newest appears first when prepended
+                for (let i = storedReviews.length - 1; i >= 0; i--) {
+                    const review = storedReviews[i];
+                    const starsHTML = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                    
+                    const card = document.createElement('div');
+                    card.className = 'review-card';
+                    card.innerHTML = `
+                        <div class="review-meta">
+                            <div class="avatar-initials">${review.initials}</div>
+                            <div class="reviewer-info">
+                                <h4 class="reviewer-name">${review.name}</h4>
+                                <div class="verified-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Verified Buyer
+                                </div>
+                            </div>
+                            <div class="review-rating">${starsHTML}</div>
+                        </div>
+                        <p class="review-text">
+                            "${review.text}"
+                        </p>
+                        <span class="review-date">${review.date}</span>
+                    `;
+                    grid.insertBefore(card, grid.firstChild);
+                }
+            } catch (err) {
+                console.error("Failed to load custom reviews on product page:", err);
+            }
+        }
+    </script>
+</body>
+
+</html>
