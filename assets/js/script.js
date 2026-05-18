@@ -767,3 +767,20 @@ document.querySelectorAll('.mini-faq-trigger').forEach(trigger => {
         }
     });
 });
+
+// Premium Blog FAQ Accordion Toggles
+document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Toggle active class on clicked item
+        document.querySelectorAll('.faq-item').forEach(faq => {
+            faq.classList.remove('active');
+        });
+        
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+

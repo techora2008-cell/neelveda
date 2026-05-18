@@ -3692,3 +3692,116 @@ footer {
         gap: 0.6rem !important;
     }
 }
+
+/* ==========================================================================
+   Premium Blog Article & FAQ Accordion Styles
+   ========================================================================== */
+.blog-article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+.blog-article p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-light);
+    margin-bottom: 1.8rem;
+    font-family: var(--font-sans);
+}
+
+.blog-article h2 {
+    color: var(--accent-gold);
+    font-size: 1.85rem;
+    font-family: var(--font-serif);
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.02em;
+    position: relative;
+}
+
+.blog-article h2::after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 1.5px;
+    background: var(--accent-gold);
+    margin-top: 0.5rem;
+    opacity: 0.3;
+}
+
+.blog-article strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.blog-article em {
+    color: var(--accent-gold);
+    font-style: italic;
+}
+
+/* Elegant Accordion FAQs */
+.blog-faq-section {
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 3.5rem;
+}
+
+.blog-faq-section h3 {
+    color: var(--accent-gold);
+    font-size: 2rem;
+    font-family: var(--font-serif);
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+.faq-item {
+    margin-bottom: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 1.75rem 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.faq-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(242, 208, 77, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.faq-item h4 {
+    color: var(--text-main);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item h4::after {
+    content: '+';
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    font-weight: 300;
+    transition: transform 0.4s ease;
+}
+
+.faq-item.active h4::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    color: var(--text-light);
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin: 0;
+    font-family: var(--font-sans);
+    opacity: 0.9;
+}
+
