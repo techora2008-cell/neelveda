@@ -189,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutData.image) {
             summaryThumb.src = checkoutData.image;
         } else if (settings.productName.includes("3 Combo Pack")) {
-            summaryThumb.src = "images/products/mobile/mobile-3-pack.png";
+            summaryThumb.src = "images/products/offer/mobile/mobile-3-pack.png";
         } else if (settings.productName.includes("5 Combo Pack")) {
-            summaryThumb.src = "images/products/mobile/mobile-5-pack.png";
+            summaryThumb.src = "images/products/offer/mobile/mobile-5-pack.png";
         } else if (settings.productName.includes("10 Combo Pack")) {
-            summaryThumb.src = "images/products/mobile/mobile-10-pack.png";
+            summaryThumb.src = "images/products/offer/mobile/mobile-10-pack.png";
         } else {
-            summaryThumb.src = "images/design/web/hero/hero.png";
+            summaryThumb.src = "images/products/main/100ml-main.png";
         }
     }
 

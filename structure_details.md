@@ -30,10 +30,20 @@ neelveda/
 │       ├── logo/
 │       │   └── logo.png             # Premium brand crest logo
 │       ├── products/
-│       │   └── mobile/              # High-conversion product combo pack renders
-│       │       ├── mobile-3-pack.png
-│       │       ├── mobile-5-pack.png
-│       │       └── mobile-10-pack.png
+│       │   ├── main/                # Main product standard 100ml gallery pack views
+│       │   │   ├── 100ml-main.png
+│       │   │   ├── 100ml-front.png
+│       │   │   ├── 100ml back.png
+│       │   │   └── 100ml features.png
+│       │   └── offer/               # High-conversion value pack layouts
+│       │       ├── mobile/          # Optimized mobile-view value packs
+│       │       │   ├── mobile-3-pack.png
+│       │       │   ├── mobile-5-pack.png
+│       │       │   └── mobile-10-pack.png
+│       │       └── pc/              # Desktop-optimized clean combos
+│       │           ├── clean-combo-3.png
+│       │           ├── clean-combo-5.png
+│       │           └── clean-combo-10.png
 │       └── design/
 │           ├── after-before/        # Hair transformation social proof
 │           │   ├── before/before_hair.png

@@ -483,7 +483,7 @@ document.querySelectorAll('.ad-clean-btn').forEach(btn => {
         
         // Find the image source associated with this combo pack
         const cardInner = btn.closest('.ad-card-inner');
-        let imageSrc = "images/design/web/hero/hero.png"; // Default fallback
+        let imageSrc = "images/products/main/100ml-main.png"; // Default fallback
         if (cardInner) {
             const imgEl = cardInner.querySelector('.ad-clean-image img');
             if (imgEl) {

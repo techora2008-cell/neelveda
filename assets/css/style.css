@@ -3014,9 +3014,9 @@ footer {
     }
 
     /* Assign the new mobile-optimized images */
-    .ad-clean-banner:nth-of-type(1) .ad-clean-image img { content: url('../images/products/mobile/mobile-3-pack.png'); }
-    .ad-clean-banner:nth-of-type(2) .ad-clean-image img { content: url('../images/products/mobile/mobile-5-pack.png'); }
-    .ad-clean-banner:nth-of-type(3) .ad-clean-image img { content: url('../images/products/mobile/mobile-10-pack.png'); }
+    .ad-clean-banner:nth-of-type(1) .ad-clean-image img { content: url('../images/products/offer/mobile/mobile-3-pack.png'); }
+    .ad-clean-banner:nth-of-type(2) .ad-clean-image img { content: url('../images/products/offer/mobile/mobile-5-pack.png'); }
+    .ad-clean-banner:nth-of-type(3) .ad-clean-image img { content: url('../images/products/offer/mobile/mobile-10-pack.png'); }
 
     .ad-clean-sub {
         font-size: 0.8rem;
