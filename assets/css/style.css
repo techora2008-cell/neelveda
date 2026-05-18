@@ -3805,3 +3805,16 @@ footer {
     opacity: 0.9;
 }
 
+/* Breadcrumb Reset to override general fixed nav styles */
+nav[aria-label="breadcrumb"] {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: auto !important;
+    z-index: 1 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: none !important;
+}
+
