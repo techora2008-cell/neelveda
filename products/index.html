@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neelveda | Ancient Ayurvedic Traditions for Modern Hair Care</title>
+    <meta name="description" content="Discover the luxury of ancient ayurvedic traditions refined for modern hair care. Neelveda brings you the purest botanical nourishment.">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+</head>
+<body class="loading">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <span class="preloader-text">NEELVEDA</span>
+            </div>
+            <div class="preloader-underline"></div>
+        </div>
+    </div>
+
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo-wrapper">
+                <img src="images/logo.png" alt="Neelveda Logo" class="nav-logo">
+                <div class="logo">Neelveda</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#offer-cards">Offers</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <div class="announcement-content">
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <a href="#offer-cards">Best offers</a>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <a href="#offer-cards">Best offers</a>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <a href="#offer-cards">Best offers</a>
+                <span class="dot">•</span>
+                <span>Cashback in three days</span>
+                <span class="dot">•</span>
+                <span>Free shipping</span>
+                <span class="dot">•</span>
+                <a href="#offer-cards">Best offers</a>
+                <span class="dot">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="menu-overlay-bg"></div>
+        
+        <div class="mobile-menu-inner">
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="menu-decoration">
+                <img src="images/logo.png" alt="" class="menu-watermark">
+            </div>
+
+            <div class="mobile-nav-container">
+                <p class="menu-label">Exploration</p>
+                <ul class="mobile-nav-links">
+                    <li style="--i:1"><a href="#home" data-text="Home">Home</a></li>
+                    <li style="--i:2"><a href="#offer-cards" data-text="Offers">Offers</a></li>
+                    <li style="--i:3"><a href="#benefits" data-text="Benefits">Benefits</a></li>
+                    <li style="--i:4"><a href="#story" data-text="Our Story">Our Story</a></li>
+                    <li style="--i:5"><a href="#contact" data-text="Contact">Contact</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                                        <p class="hero-tagline">100% ORGANIC</p>
+                    <h1 class="hero-title">
+                        <span class="typing-animation">Neelveda</span>
+                        <span class="herbal-oil-text">HERBAL OIL</span>
+                    </h1>
+                    <div class="hero-description">
+                        <p>Hair growth & strength</p>
+                        <p>nourishes & shine</p>
+                    </div>
+                    <p class="hero-subtext">Nourished Roots. Stronger, Shinier You.</p>
+                    <div class="hero-actions">
+                        <a href="#offer-cards" class="btn btn-primary">View Offers</a>
+                        <a href="#order" class="btn btn-secondary">Order Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Clean Fashion Combo Offers Section -->
+        <section id="combos" class="section combos-section ad-clean-section">
+            <div class="container">
+                <div class="section-header center-header">
+                    <p class="hero-tagline ad-clean-tagline">Limited Time Offers</p>
+                    <h2 class="section-title ad-clean-title">Premium <span class="text-emerald">Curated Bundles</span></h2>
+                    
+                    <!-- Mobile Swipe Hint -->
+                    <div class="mobile-swipe-hint">
+                        <span class="swipe-arrow">←</span>
+                        <span>Swipe to explore more offers</span>
+                        <span class="swipe-arrow">→</span>
+                    </div>
+                </div>
+            </div> <!-- Close container for header only -->
+
+            <div class="ad-slider-container">
+                <div id="offer-cards" class="ad-clean-wrapper">
+                    <!-- Ad Card 1 -->
+                    <div class="ad-clean-banner">
+                        <div class="ad-card-inner">
+                            <div class="ad-clean-content">
+                                <h4 class="ad-clean-sub">Special Combo Offer</h4>
+                                <h3 class="ad-clean-main">
+                                    <div class="num-with-stars">
+                                        <span class="offer-num">3</span>
+                                        <div class="ad-clean-stars">★★★★★</div>
+                                    </div>
+                                    <span class="offer-text">COMBO<br>PACK</span>
+                                </h3>
+                                <p class="ad-clean-desc">Perfect starter bundle for daily hair care.</p>
+                                <div class="ad-clean-pricing">
+                                    <span class="price-new">₹600</span>
+                                    <span class="price-old">₹747</span>
+                                </div>
+                                <a href="checkout.html" class="ad-clean-btn" data-combo="3 Combo Pack" data-price="₹600.00">Buy Now</a>
+                            </div>
+                            <div class="ad-clean-image">
+                                <div class="ad-clean-glow"></div>
+                                <img src="images/clean-combo-3.png" alt="3 Combo Pack">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ad Card 2 -->
+                    <div class="ad-clean-banner">
+                        <div class="ad-card-inner reverse">
+                            <div class="ad-clean-content">
+                                <h4 class="ad-clean-sub">Best Value Offer</h4>
+                                <h3 class="ad-clean-main">
+                                    <div class="num-with-stars">
+                                        <span class="offer-num">5</span>
+                                        <div class="ad-clean-stars">★★★★★</div>
+                                    </div>
+                                    <span class="offer-text">COMBO<br>PACK</span>
+                                </h3>
+                                <p class="ad-clean-desc">Family savings bundle with 1 free piece.</p>
+                                <div class="ad-clean-pricing">
+                                    <span class="price-new">₹1000</span>
+                                    <span class="price-old">₹1245</span>
+                                </div>
+                                <a href="checkout.html" class="ad-clean-btn" data-combo="5 Combo Pack" data-price="₹1000.00">Buy Now</a>
+                            </div>
+                            <div class="ad-clean-image">
+                                <div class="ad-clean-glow"></div>
+                                <img src="images/clean-combo-5.png" alt="5 Combo Pack">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ad Card 3 -->
+                    <div class="ad-clean-banner">
+                        <div class="ad-card-inner">
+                            <div class="ad-clean-content">
+                                <h4 class="ad-clean-sub">Ultimate Savings</h4>
+                                <h3 class="ad-clean-main">
+                                    <div class="num-with-stars">
+                                        <span class="offer-num" data-digits="2">10</span>
+                                        <div class="ad-clean-stars">★★★★★</div>
+                                    </div>
+                                    <span class="offer-text">COMBO<br>PACK</span>
+                                </h3>
+                                <p class="ad-clean-desc">Maximum value bundle with 2 free pieces.</p>
+                                <div class="ad-clean-pricing">
+                                    <span class="price-new">₹2000</span>
+                                    <span class="price-old">₹2490</span>
+                                </div>
+                                <a href="checkout.html" class="ad-clean-btn" data-combo="10 Combo Pack" data-price="₹2000.00">Buy Now</a>
+                            </div>
+                            <div class="ad-clean-image">
+                                <div class="ad-clean-glow"></div>
+                                <img src="images/clean-combo-10.png" alt="10 Combo Pack">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows (Desktop Only) -->
+                <div class="ad-nav-arrows">
+                    <button class="ad-nav-arrow prev" aria-label="Previous Offer">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="ad-nav-arrow next" aria-label="Next Offer">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="ad-dots">
+                <span class="ad-dot active"></span>
+                <span class="ad-dot"></span>
+                <span class="ad-dot"></span>
+            </div>
+
+        </section>
+
+        <!-- Reveal Section -->
+        <section id="reveal" class="section reveal-section">
+            <div class="container">
+                <div class="reveal-grid">
+                    <div class="reveal-image parallax-img">
+                        <img src="images/texture.png" alt="Luxurious Hair Oil Texture">
+                    </div>
+                    <div class="reveal-info">
+                        <p class="hero-tagline">The Essence</p>
+                        <h2>Pure Liquid Gold for Your Hair.</h2>
+                        <p>Every drop of Neelveda is a concentrated blend of rare botanicals, cold-pressed to preserve their vital life force. Our formula penetrates deep into the follicle, restoring shine, strength, and vitality from within.</p>
+                        <br>
+                        <ul style="list-style: disc; margin-left: 20px; color: var(--accent-earth);">
+                            <li>100% Organic Ingredients</li>
+                            <li>Traditional Vedic Extraction</li>
+                            <li>Zero Synthetic Fragrances</li>
+                            <li>Ethically Sourced</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="section benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="hero-tagline">Why Neelveda</p>
+                    <h2 class="section-title">The Benefits of Rituals</h2>
+                    <p class="section-subtitle">A transformative journey for your hair and scalp</p>
+                </div>
+                
+                <div class="comparison-slider" style="margin-top: 2rem; margin-bottom: 4rem;">
+                    <div class="comparison-after">
+                        <img src="images/after_hair.png" alt="After - Long Hair">
+                        <span class="comparison-label after-label">After</span>
+                    </div>
+                    <div class="comparison-before">
+                        <img src="images/before_hair.png" alt="Before - Short Hair">
+                        <span class="comparison-label before-label">Before</span>
+                    </div>
+
+                    <input type="range" min="0" max="100" value="50" aria-label="Compare before and after images" oninput="let v=this.value; this.parentElement.querySelector('.comparison-before').style.clipPath='polygon(0 0, '+v+'% 0, '+v+'% 100%, 0 100%)'; this.parentElement.querySelector('.comparison-handle').style.left=v+'%';">
+                    <div class="comparison-handle">
+                        <div class="handle-circle">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:-2px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:-2px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Deep Growth</h3>
+                        <p>Stimulates follicles at the root to promote significantly thicker and faster hair growth.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Root Strength</h3>
+                        <p>Fortifies hair strands from the inside out, dramatically reducing breakage and hair fall.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Scalp Vitality</h3>
+                        <p>Purifies and balances the scalp environment, eliminating dryness and irritation.</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.99871 7.05 2.99871C5.59096 2.99871 4.1917 3.5783 3.16 4.61C2.1283 5.6417 1.54871 7.04096 1.54871 8.5C1.54871 9.95904 2.1283 11.3583 3.16 12.39L12 21.35L20.84 12.39C21.351 11.8808 21.7564 11.2744 22.0329 10.6069C22.3095 9.93949 22.4518 9.22405 22.4518 8.5C22.4518 7.77595 22.3095 7.06051 22.0329 6.39307C21.7564 5.72563 21.351 5.1192 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <h3>Silk Texture</h3>
+                        <p>Infuses weightless moisture for hair that is incredibly soft, manageable, and mirror-shiny.</p>
+                    </div>
+                </div>
+
+                <div class="benefits-more-container">
+                    <a href="Benefits.html" class="btn btn-primary">See More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredient Spotlight -->
+        <section id="ingredients" class="section ingredients">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--spacing-xl);">
+                    <p class="hero-tagline">The Key Components</p>
+                    <h2 style="font-size: 3.5rem;">Sourced from the Sacred Earth.</h2>
+                </div>
+
+                <div class="ingredient-list">
+                    <div class="ingredient-card">
+                        <div class="ingredient-visual">
+                            <img src="images/coconut_oil.png" alt="Virgin Coconut Oil">
+                        </div>
+                        <div class="ingredient-details">
+                            <h3>Virgin Coconut Oil</h3>
+                            <p>Cold-pressed to preserve its vital nutrients, our coconut oil penetrates deep into the hair shaft to provide weightless moisture and protect against environmental damage.</p>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-visual">
+                            <img src="images/bhringraj.png" alt="Bhringraj">
+                        </div>
+                        <div class="ingredient-details">
+                            <h3>Bhringraj</h3>
+                            <p>Known as the 'King of Hair' in Ayurveda, Bhringraj is a potent herb that promotes hair growth, prevents premature greying, and reduces hair fall by revitalizing the scalp.</p>
+                        </div>
+                    </div>
+
+                    <div class="ingredient-card">
+                        <div class="ingredient-visual">
+                            <img src="images/hibiscus.png" alt="Hibiscus">
+                        </div>
+                        <div class="ingredient-details">
+                            <h3>Hibiscus</h3>
+                            <p>Rich in Vitamin C and amino acids, Hibiscus stimulates hair growth, conditions the strands, and prevents dryness, leaving your hair soft and manageable.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredients-more-container">
+                    <a href="Ingredients.html" class="btn btn-primary">See More</a>
+                </div>
+            </div>
+        </section>
+        <!-- Story Section -->
+        <section id="story" class="section story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <p class="hero-tagline">Our Heritage</p>
+                        <h2>A Legacy of Wisdom.</h2>
+                        <p>Born from the lush, verdant landscapes of Kerala, Neelveda is a tribute to the timeless secrets of Ayurveda. Our journey began with a simple belief: that nature holds the ultimate power to heal and nourish.</p>
+                        
+                        <div class="story-action-wrapper">
+                            <a href="Story.html" class="btn btn-primary">Read More</a>
+                        </div>
+
+                        <div class="story-signature">
+                            <p>The Neelveda Philosophy</p>
+                            <div class="signature-line"></div>
+                        </div>
+                    </div>
+                    <div class="story-image-wrapper">
+                        <div class="story-image">
+                            <img src="images/Hero image.png" alt="Neelveda Herbal Oil - Our Story">
+                        </div>
+                        <div class="story-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WhatsApp Order Card -->
+        <section id="order" class="section whatsapp-order">
+            <div class="container">
+                <div class="order-card">
+                    <div class="order-flex">
+                        <div class="order-visual">
+                            <img src="images/100ml-main.jpg" alt="Neelveda Oil Bottle" class="floating-product">
+                            <div class="product-glow"></div>
+                        </div>
+                        <div class="order-content">
+                            <p class="hero-tagline">Begin Your Journey</p>
+                            <h2 id="product-name-display">Neelveda Herbal Oil</h2>
+                            <p class="order-price" id="product-price-display">₹249.00</p>
+                            
+                            <a href="product-detail.html" class="whatsapp-btn">
+                                <span>Order Now</span>
+                            </a>
+                            <p class="order-note">Explore details and customize your order.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="hero-tagline">Get In Touch</p>
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-subtitle">We would love to hear from you</p>
+                </div>
+                
+                <div class="contact-layout">
+                    <div class="contact-form-container">
+                        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!'); this.reset();">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="Your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required placeholder="How can we help?">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" required placeholder="Your message..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-secondary contact-submit-btn">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info-grid">
+                            <div class="contact-info-card">
+                                <div class="benefit-icon" style="margin: 0 auto 1.5rem;">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                </div>
+                                <h3>Email Us</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 0.5rem;">concierge@neelveda.com</p>
+                            </div>
+
+                            <div class="contact-info-card">
+                                <div class="benefit-icon" style="margin: 0 auto 1.5rem;">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92V19.92C22.0032 20.1986 21.9448 20.4735 21.8291 20.7247C21.7133 20.9759 21.543 21.1972 21.3308 21.373C21.1186 21.5488 20.8698 21.6749 20.595 21.7426C20.3202 21.8103 20.0264 21.8179 19.74 21.765C16.6385 21.0924 13.7196 19.6548 11.24 17.575C8.94165 15.6547 7.05432 13.2541 5.68999 10.515C5.01185 7.46973 4.93883 4.29871 5.47999 1.21503C5.53424 0.932402 5.66014 0.669866 5.84501 0.451871C6.02987 0.233877 6.26732 0.0679813 6.53335 0.00503063H9.53999C10.0242 -0.0163935 10.4939 0.170494 10.8407 0.505503C11.1874 0.840513 11.3807 1.30325 11.38 1.78503C11.3703 2.76632 11.5302 3.73715 11.85 4.65503C11.9767 5.01353 12.0006 5.40114 11.9184 5.77259C11.8363 6.14404 11.6517 6.4842 11.38 6.75503L9.85999 8.27503C11.2831 10.7711 13.313 12.8009 15.8091 14.2241L17.3291 12.7041C17.6015 12.4338 17.9431 12.2505 18.3158 12.1695C18.6885 12.0886 19.0772 12.1128 19.4391 12.2391C20.3601 12.5606 21.3341 12.7223 22.3191 12.7141C22.8105 12.7135 23.2825 12.9126 23.6264 13.2644C23.9702 13.6163 24.1611 14.0935 24.1391 14.5841V16.92H22Z" fill="currentColor"/></svg>
+                                </div>
+                                <h3>Call Us</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 0.5rem;">+91 8943845357</p>
+                            </div>
+                        </div>
+
+                        <div class="social-media-section">
+                            <h3>Connect With Us</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-icon" aria-label="Instagram">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="currentColor" stroke-width="2"/><path d="M17.5 6.51L17.51 6.49889" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Facebook">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16.5L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="Twitter">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4L20 20M20 4L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                                <a href="#" class="social-icon" aria-label="WhatsApp">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5C21.0034 12.8199 20.6951 14.1219 20.1 15.3C19.3944 16.7118 18.3098 17.8992 16.9674 18.7293C15.6251 19.5594 14.0782 19.9994 12.5 20C11.1801 20.0035 9.87812 19.6951 8.7 19.1L3 21L4.9 15.3C4.30493 14.1219 3.99656 12.8199 4 11.5C4.00061 9.92179 4.44061 8.37488 5.27072 7.03258C6.10083 5.69028 7.28825 4.6056 8.7 3.90003C9.87812 3.30496 11.1801 2.99659 12.5 3C17.1944 3 21 6.80558 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5 16C16.5 16 17 14.5 17 14C17 13.5 16 13.5 16 13.5L14 13C14 13 13.5 13 13.5 13.5C13.5 14 13.5 14.5 13 14.5C12.5 14.5 10 12 9.5 11.5C9 11 9.5 10.5 10 10.5C10.5 10.5 10.5 10 10.5 10L10 8C10 8 10 7.5 9.5 7.5C9 7.5 7.5 8 7.5 8C7.5 8.5 8 11.5 11 14.5C14 17.5 16.5 16 16.5 16Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">Neelveda</a>
+                    <p>Neelveda bridges ancient Ayurvedic wisdom with modern luxury hair care. Crafted in Kerala using traditional Vedic methods, our formulas nourish your hair from within, restoring its natural brilliance and vitality.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#offer-cards">Offers</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#ingredients">Ingredients</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="shipping-returns.html">Shipping & Returns</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <!-- <li><a href="admin.html" style="opacity:0.5; font-size:0.75rem;"><i class="fa-solid fa-lock" style="font-size:0.65rem; margin-right:4px;"></i> Brand Control</a></li> -->
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neelveda Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/alert.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

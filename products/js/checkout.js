@@ -10,7 +10,7 @@
             const contentHTML = `
                 <div class="custom-alert-content">
                     <div class="custom-alert-header">
-                        <img src="images/logo/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
+                        <img src="images/logo.png" alt="Neelveda Logo" class="custom-alert-logo">
                         <span class="custom-alert-title">NEELVEDA</span>
                     </div>
                     <div class="custom-alert-divider"></div>
@@ -133,14 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedSettings = {
         productName: "Neelveda Herbal Oil",
         price: "₹249.00",
-        whatsapp: "918156924839"
+        whatsapp: "919544181503"
     };
 
     // settings holds the details for this specific checkout transaction
     const settings = {
         productName: checkoutData.productName || storedSettings.productName || "Neelveda Herbal Oil",
         price: checkoutData.price || storedSettings.price || "₹249.00",
-        whatsapp: storedSettings.whatsapp || "918156924839"
+        whatsapp: storedSettings.whatsapp || "919544181503"
     };
     
     const checkoutQty = parseInt(localStorage.getItem('checkoutQty')) || 1;
@@ -189,13 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkoutData.image) {
             summaryThumb.src = checkoutData.image;
         } else if (settings.productName.includes("3 Combo Pack")) {
-            summaryThumb.src = "images/products/offer/pc/clean-combo-3.png";
+            summaryThumb.src = "images/clean-combo-3.png";
         } else if (settings.productName.includes("5 Combo Pack")) {
-            summaryThumb.src = "images/products/offer/pc/clean-combo-5.png";
+            summaryThumb.src = "images/clean-combo-5.png";
         } else if (settings.productName.includes("10 Combo Pack")) {
-            summaryThumb.src = "images/products/offer/pc/clean-combo-10.png";
+            summaryThumb.src = "images/clean-combo-10.png";
         } else {
-            summaryThumb.src = "images/products/main/100ml-main.png";
+            summaryThumb.src = "images/100ml-main.jpg";
         }
     }
 
