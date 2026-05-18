@@ -7,6 +7,12 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.neelveda\.in$ [NC]
 RewriteRule ^(.*)$ https://neelveda.in/$1 [R=301,L]
 
+# Enforce trailing slash on all directories/clean URLs (except files)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteCond %{REQUEST_URI} !(.*)\.(.*)$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
 # Redirect old .html storefront pages to clean folder trailing slash URLs
 RewriteRule ^index\.html$ / [R=301,L]
 RewriteRule ^story\.html$ /about/ [R=301,L]
