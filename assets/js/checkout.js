@@ -132,14 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Temporarily decoupled from localStorage admin settings
     const storedSettings = {
         productName: "Neelveda Herbal Oil",
-        price: "₹249.00",
+        price: "₹250.00",
         whatsapp: "918156924839"
     };
 
     // settings holds the details for this specific checkout transaction
     const settings = {
         productName: checkoutData.productName || storedSettings.productName || "Neelveda Herbal Oil",
-        price: checkoutData.price || storedSettings.price || "₹249.00",
+        price: checkoutData.price || storedSettings.price || "₹250.00",
         whatsapp: storedSettings.whatsapp || "918156924839"
     };
     
@@ -154,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Remove all non-digits to get the exact value in cents/paise
     const digitsOnly = settings.price.replace(/[^\d]/g, '');
-    let totalAmount = 249 * checkoutQty; // default fallback
+    let totalAmount = 250 * checkoutQty; // default fallback
     
     if (digitsOnly.length > 0) {
-        // Assume the last two digits are decimals (e.g., 24900 -> 249.00)
+        // Assume the last two digits are decimals (e.g., 24900 -> 250.00)
         // Check if original price string has a decimal point or comma for cents
         if (settings.price.match(/[.,]\d{2}$/)) {
             totalAmount = (parseInt(digitsOnly, 10) / 100) * checkoutQty;
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check for abnormal calculations (like 0.13) and reset to fallback
     if (totalAmount < 1 || isNaN(totalAmount)) {
-        totalAmount = 249 * checkoutQty;
+        totalAmount = 250 * checkoutQty;
     }
 
     const formatPrice = (amount) => {

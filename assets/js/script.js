@@ -254,7 +254,7 @@ let currentQty = 1;
 const qtyVal = document.getElementById('qty');
 const whatsappLink = document.getElementById('whatsapp-link');
 let currentSize = '200ml';
-let currentPrice = '₹249.00';
+let currentPrice = '₹250.00';
 let productName = "Neelveda Herbal Oil";
 const whatsappNumber = "918156924839"; // Updated WhatsApp number
 
@@ -522,7 +522,7 @@ function loadSettings() {
     // Temporarily decoupled from localStorage admin settings for direct premium layout display
     const settings = {
         productName: "Neelveda Herbal Oil",
-        price: "₹249.00",
+        price: "₹250.00",
         whatsapp: "918156924839",
         heroHeadline: "100% ORGANIC",
         heroSubtext: "Nourished Roots. Stronger, Shinier You.",
