@@ -1022,7 +1022,7 @@
             <!-- Sidebar Area -->
             <div class="sidebar">
                 <div class="sidebar-brand">
-                    <img src="../assets/images/logo.png" alt="Neelveda Logo">
+                    <img loading="lazy" decoding="async" src="../assets/images/logo.png" alt="Neelveda Logo">
                     <h2>Neelveda</h2>
                 </div>
 
@@ -1660,7 +1660,7 @@
                             </div>
                             <div style="margin-top: 4px;"><strong>Target Destination:</strong> ${o.city}, ${o.state}</div>
                             <div class="order-actions-bar">
-                                <a href="https://wa.me/${o.phone}?text=Hello%20${encodeURIComponent(o.name)}!%20This%20is%20Neelveda%20Support%20regarding%20your%20recent%20order%20for%20${encodeURIComponent(o.product)}.%20Shall%20we%20proceed%20with%20delivery?" target="_blank" class="btn-order-action btn-wa-contact">
+                                <a href="https://wa.me/${o.phone}?text=Hello%20${encodeURIComponent(o.name)}!%20This%20is%20Neelveda%20Support%20regarding%20your%20recent%20order%20for%20${encodeURIComponent(o.product)}.%20Shall%20we%20proceed%20with%20delivery?" target="_blank" rel="noopener noreferrer" class="btn-order-action btn-wa-contact">
                                     <i class="fa-brands fa-whatsapp"></i> Chat Customer
                                 </a>
                                 <button class="btn-order-action btn-order-delete" onclick="deleteIndividualOrder(${index}, event)">
