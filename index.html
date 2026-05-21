@@ -46,23 +46,39 @@
         "priceRange": "₹250+",
         "url": "https://neelveda.in/",
         "logo": "https://neelveda.in/assets/images/logo/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Perinthalmanna",
-            "addressLocality": "Malappuram",
-            "addressRegion": "Kerala",
-            "addressCountry": "IN"
-        },
+        "email": "neelvedaherbeloil@gmail.com",
+        "telephone": "+91-81569-24839",
+        "address": [
+            {
+                "@type": "PostalAddress",
+                "name": "Headquarters",
+                "streetAddress": "Perinthalmanna",
+                "addressLocality": "Malappuram",
+                "addressRegion": "Kerala",
+                "addressCountry": "IN"
+            },
+            {
+                "@type": "PostalAddress",
+                "name": "Manufacturing Unit",
+                "streetAddress": "Kattukulam, Alanallur, Mannarkkad",
+                "addressLocality": "Palakkad",
+                "addressRegion": "Kerala",
+                "addressCountry": "IN"
+            }
+        ],
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91-81569-24839",
+            "email": "neelvedaherbeloil@gmail.com",
             "contactType": "customer service",
             "areaServed": "IN",
             "availableLanguage": "en"
         },
         "sameAs": [
             "https://www.instagram.com/neelveda.in",
-            "https://www.facebook.com/neelvedain"
+            "https://www.facebook.com/neelvedain",
+            "https://x.com/neelveda_in",
+            "https://wa.me/918156924839"
         ]
     }
     </script>
@@ -83,6 +99,33 @@
             "lowPrice": "250",
             "highPrice": "2000",
             "offerCount": "4",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "IN"
+                },
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "INR"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "1",
+                        "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "3",
+                        "maxValue": "5",
+                        "unitCode": "DAY"
+                    }
+                }
+            },
             "offers": [
                 {
                     "@type": "Offer",

@@ -1271,7 +1271,34 @@
             "offerCount": "4",
             "priceValidUntil": "2027-12-31",
             "url": "https://neelveda.in/products/herbal-oil/",
-            "availability": "https://schema.org/InStock"
+            "availability": "https://schema.org/InStock",
+            "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingDestination": {
+                    "@type": "DefinedRegion",
+                    "addressCountry": "IN"
+                },
+                "shippingRate": {
+                    "@type": "MonetaryAmount",
+                    "value": "0",
+                    "currency": "INR"
+                },
+                "deliveryTime": {
+                    "@type": "ShippingDeliveryTime",
+                    "handlingTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "0",
+                        "maxValue": "1",
+                        "unitCode": "DAY"
+                    },
+                    "transitTime": {
+                        "@type": "QuantitativeValue",
+                        "minValue": "3",
+                        "maxValue": "5",
+                        "unitCode": "DAY"
+                    }
+                }
+            }
         }
     }
     </script>
