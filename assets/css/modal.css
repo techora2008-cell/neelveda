@@ -1,0 +1,74 @@
+/* assets/css/modal.css */
+/* Overlay */
+.guarantee-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.guarantee-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+/* Modal Card */
+.guarantee-modal {
+  background: linear-gradient(135deg, #0a2e18, #124b28);
+  color: #f5f5f5;
+  border-radius: 12px;
+  max-width: 380px;
+  width: 90%;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  position: relative;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  animation: modalShow 0.45s cubic-bezier(.25,.8,.25,1) forwards;
+}
+/* Close button */
+.guarantee-close {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  background: transparent;
+  border: none;
+  color: #f5f5f5;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+/* Typography */
+.guarantee-title { font-size: 1.6rem; margin-bottom: .6rem; }
+.guarantee-badge { font-size: 2rem; font-weight: 700; color: #d4af37; margin: .8rem 0; }
+.guarantee-desc,
+.guarantee-text { font-size: .95rem; margin: .6rem 0; line-height: 1.4; }
+/* CTA button */
+.guarantee-cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .75rem 1.8rem;
+  background: #d4af37;
+  color: #0a2e18;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .3s ease, transform .2s;
+}
+.guarantee-cta:hover {
+  background: #c8a033;
+  transform: translateY(-2px);
+}
+/* Body scroll lock */
+body.modal-open { overflow: hidden; }
+/* Entrance animation */
+@keyframes modalShow {
+  0%   { opacity:0; transform:scale(0.85); }
+  100% { opacity:1; transform:scale(1); }
+}
+@media (max-width:480px) {
+  .guarantee-modal { padding:1.5rem 1rem; }
+}
